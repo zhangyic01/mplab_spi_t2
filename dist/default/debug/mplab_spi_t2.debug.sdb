@@ -1,0 +1,181 @@
+[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F18345 ]
+[d frameptr 6 ]
+"22 C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+[e E7988 . `uc
+SPI_MASTER 1
+SPI_SLAVE 0
+]
+[e E7992 . `uc
+SPI_POSEDGE 0
+SPI_NEGEDGE 1
+]
+[e E7996 . `ui
+SPI_M_T2_DIV2 9
+SPI_M_FOSC_DIV64 8
+SPI_M_FOSC_DIV16 1
+SPI_M_FOSC_DIV4 0
+SPI_S_IN_DIS 65
+SPI_S_IN_EN 64
+SPI_M_FOSC_CUST 1010
+]
+[e E8005 . `uc
+SPI_CLK_HIGH_IN_IDLE 1
+SPI_CLK_LOW_IN_IDLE 0
+]
+"16 C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+[e E7807 . `uc
+SPI_MASTER 1
+SPI_SLAVE 0
+]
+[e E7811 . `uc
+SPI_POSEDGE 0
+SPI_NEGEDGE 1
+]
+[e E7815 . `ui
+SPI_M_T2_DIV2 9
+SPI_M_FOSC_DIV64 8
+SPI_M_FOSC_DIV16 1
+SPI_M_FOSC_DIV4 0
+SPI_S_IN_DIS 65
+SPI_S_IN_EN 64
+SPI_M_FOSC_CUST 1010
+]
+[e E7824 . `uc
+SPI_CLK_HIGH_IN_IDLE 1
+SPI_CLK_LOW_IN_IDLE 0
+]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 1 0 ]
+"39
+[v _memcpyee memcpyee `(v  1 e 1 0 ]
+"18 C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+[v _main main `(v  1 e 1 0 ]
+"16 C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+[v _init_spi init_spi `(v  1 e 1 0 ]
+"28
+[v _write_spi_data write_spi_data `(v  1 e 1 0 ]
+"39
+[v _read_spi_data read_spi_data `(i  1 e 2 0 ]
+"382 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f18345.h
+[v _PORTA PORTA `VEuc  1 e 1 @12 ]
+[s S120 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"488
+[u S129 . 1 `S120 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES129  1 e 1 @14 ]
+[s S60 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+]
+"1563
+[u S67 . 1 `S60 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES67  1 e 1 @140 ]
+[s S45 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"1607
+[u S51 . 1 `S45 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES51  1 e 1 @141 ]
+[s S78 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1649
+[u S87 . 1 `S78 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES87  1 e 1 @142 ]
+[s S99 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"2392
+[u S108 . 1 `S99 1 . 1 0 ]
+[v _LATCbits LATCbits `VES108  1 e 1 @270 ]
+"4098
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @529 ]
+[s S214 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"4932
+[u S223 . 1 `S214 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES223  1 e 1 @532 ]
+[s S235 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"5073
+[s S241 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[u S246 . 1 `S235 1 . 1 0 `S241 1 . 1 0 ]
+[v _SSPCONbits SSPCONbits `VES246  1 e 1 @533 ]
+"21666
+[v _RC7 RC7 `VEb  1 e 0 @119 ]
+"18 C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"57
+} 0
+"28 C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+[v _write_spi_data write_spi_data `(v  1 e 1 0 ]
+{
+[v write_spi_data@dat dat `i  1 p 2 0 ]
+"30
+} 0
+"39
+[v _read_spi_data read_spi_data `(i  1 e 2 0 ]
+{
+"45
+} 0
+"16
+[v _init_spi init_spi `(v  1 e 1 0 ]
+{
+[v init_spi@spi_mode spi_mode `E7807  1 a 1 wreg ]
+[v init_spi@spi_mode spi_mode `E7807  1 a 1 wreg ]
+[v init_spi@spi_clk_edge spi_clk_edge `E7811  1 p 1 0 ]
+[v init_spi@clk_cfg clk_cfg `E7815  1 p 2 1 ]
+[v init_spi@clk_idle_cfg clk_idle_cfg `E7824  1 p 1 3 ]
+[v init_spi@sspen sspen `i  1 p 2 4 ]
+"18
+[v init_spi@spi_mode spi_mode `E7807  1 a 1 6 ]
+"25
+} 0

@@ -11,24 +11,64 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\YiChao\AppData\Local\Temp\sn9o.obj
+$C:\Users\zhangyic\AppData\Local\Temp\sbis.obj
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 2 2 2 2
 config CONFIG 0 8007 8007 4 2
 $dist/default/production\mplab_spi_t2.production.obj
-cinit CODE 0 7FD 7FD 3 2
-text1 CODE 0 78D 78D 4 2
-text2 CODE 0 791 791 9 2
-text3 CODE 0 79A 79A 1C 2
-maintext CODE 0 7B6 7B6 47 2
-cstackCOMMON COMMON 1 70 70 9 1
+cinit CODE 0 7FA 7FA 6 2
+text1 CODE 0 6F1 6F1 2C 2
+text2 CODE 0 6A9 6A9 14 2
+text3 CODE 0 69A 69A F 2
+text4 CODE 0 6BD 6BD 18 2
+text5 CODE 0 691 691 9 2
+text6 CODE 0 6D5 6D5 1C 2
+idataCOMMON CODE 0 690 690 1 2
+maintext CODE 0 71D 71D DD 2
+cstackCOMMON COMMON 1 70 70 D 1
+cstackBANK0 BANK0 1 20 20 21 1
+stringtext1 STRCODE 0 800 800 1F 2
+stringtext2 STRCODE 0 81F 81F 10 2
+stringtext3 STRCODE 0 82F 82F 10 2
+stringtext4 STRCODE 0 83F 83F 10 2
+stringtext5 STRCODE 0 84F 84F 10 2
+stringtext6 STRCODE 0 85F 85F 10 2
+stringtext7 STRCODE 0 86F 86F 10 2
+stringtext8 STRCODE 0 87F 87F 10 2
+stringtext9 STRCODE 0 88F 88F 10 2
+dataCOMMON COMMON 1 7D 7D 1 1
+stringtext10 STRCODE 0 89F 89F 10 2
+stringtext11 STRCODE 0 8AF 8AF 10 2
+stringtext12 STRCODE 0 8BF 8BF 10 2
+stringtext13 STRCODE 0 8CF 8CF 10 2
+stringtext14 STRCODE 0 8DF 8DF E 2
+stringtext15 STRCODE 0 8ED 8ED E 2
+stringtext16 STRCODE 0 8FB 8FB D 2
+stringtext17 STRCODE 0 908 908 C 2
+stringtext18 STRCODE 0 914 914 B 2
+stringtext19 STRCODE 0 91F 91F 9 2
+stringtext20 STRCODE 0 928 928 9 2
+stringtext21 STRCODE 0 931 931 8 2
+stringtext22 STRCODE 0 939 939 8 2
+stringtext23 STRCODE 0 941 941 8 2
+stringtext24 STRCODE 0 949 949 8 2
+stringtext25 STRCODE 0 951 951 7 2
+stringtext26 STRCODE 0 958 958 7 2
+stringtext27 STRCODE 0 95F 95F 6 2
+stringtext28 STRCODE 0 965 965 6 2
+stringtext29 STRCODE 0 96B 96B 6 2
+stringtext30 STRCODE 0 971 971 5 2
+stringtext31 STRCODE 0 976 976 5 2
+stringtext32 STRCODE 0 97B 97B 5 2
+stringtext33 STRCODE 0 980 980 5 2
+stringtext34 STRCODE 0 985 985 5 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 20-6F 1
+RAM 41-6F 1
 RAM A0-EF 1
 RAM 120-16F 1
 RAM 1A0-1EF 1
@@ -41,7 +81,7 @@ RAM 4A0-4EF 1
 RAM 520-56F 1
 RAM 5A0-5EF 1
 RAM 620-64F 1
-BANK0 20-6F 1
+BANK0 41-6F 1
 BANK1 A0-EF 1
 BANK2 120-16F 1
 BANK3 1A0-1EF 1
@@ -51,10 +91,10 @@ BANK6 320-36F 1
 BANK7 3A0-3EF 1
 BANK8 420-46F 1
 BANK9 4A0-4EF 1
-CONST 4-78C 2
-CONST 800-1FFF 2
-ENTRY 4-78C 2
-ENTRY 800-1FFF 2
+CONST 4-68F 2
+CONST 98A-1FFF 2
+ENTRY 4-68F 2
+ENTRY 98A-1FFF 2
 IDLOC 8000-8003 2
 SFR10 500-51F 1
 SFR11 580-59F 1
@@ -78,9 +118,9 @@ SFR28 E00-E6F 1
 SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
-STACK 2000-23EF 1
-CODE 4-78C 2
-CODE 800-1FFF 2
+STACK 2021-23EF 1
+CODE 4-68F 2
+CODE 98A-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -95,12 +135,11 @@ BANK10 520-56F 1
 BANK11 5A0-5EF 1
 BANK12 620-64F 1
 BIGRAM 2000-23EF 1
-COMMON 79-7D 1
 EEDATA F000-F0FF 2
-STRCODE 4-78C 2
-STRCODE 800-1FFF 2
-STRING 4-78C 2
-STRING 800-1FFF 2
+STRCODE 4-68F 2
+STRCODE 98A-1FFF 2
+STRING 4-68F 2
+STRING 98A-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -115,38 +154,104 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\mplab_spi_t2.production.obj
-7FD cinit CODE >1506:C:\Users\YiChao\AppData\Local\Temp\sn9o.
-7FD cinit CODE >1509:C:\Users\YiChao\AppData\Local\Temp\sn9o.
-7FD cinit CODE >1515:C:\Users\YiChao\AppData\Local\Temp\sn9o.
-7FD cinit CODE >1517:C:\Users\YiChao\AppData\Local\Temp\sn9o.
-7FE cinit CODE >1518:C:\Users\YiChao\AppData\Local\Temp\sn9o.
-79A text3 CODE >16:C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
-79B text3 CODE >18:C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
-7A1 text3 CODE >19:C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
-7A6 text3 CODE >21:C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
-7AB text3 CODE >22:C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
-7B0 text3 CODE >23:C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
-7B5 text3 CODE >25:C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
-791 text2 CODE >39:C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
-791 text2 CODE >44:C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
-78D text1 CODE >28:C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
-78D text1 CODE >29:C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
-790 text1 CODE >30:C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
-7B6 maintext CODE >13:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-7B6 maintext CODE >16:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-7C3 maintext CODE >19:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-7C6 maintext CODE >20:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-7C7 maintext CODE >21:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-7C9 maintext CODE >22:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-7CB maintext CODE >23:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-7CD maintext CODE >28:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-7CF maintext CODE >29:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-7D6 maintext CODE >31:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-7E1 maintext CODE >32:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-7E7 maintext CODE >34:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-7EE maintext CODE >35:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-7F0 maintext CODE >37:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-7FC maintext CODE >26:C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
+7FA cinit CODE >2199:C:\Users\zhangyic\AppData\Local\Temp\sbis.
+7FA cinit CODE >2202:C:\Users\zhangyic\AppData\Local\Temp\sbis.
+7FA cinit CODE >2216:C:\Users\zhangyic\AppData\Local\Temp\sbis.
+7FC cinit CODE >2217:C:\Users\zhangyic\AppData\Local\Temp\sbis.
+7FD cinit CODE >2223:C:\Users\zhangyic\AppData\Local\Temp\sbis.
+7FD cinit CODE >2225:C:\Users\zhangyic\AppData\Local\Temp\sbis.
+7FE cinit CODE >2226:C:\Users\zhangyic\AppData\Local\Temp\sbis.
+6D5 text6 CODE >23:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6D6 text6 CODE >27:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6DC text6 CODE >28:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6E1 text6 CODE >30:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6E6 text6 CODE >31:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6EB text6 CODE >32:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6F0 text6 CODE >34:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+691 text5 CODE >37:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+692 text5 CODE >38:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+694 text5 CODE >39:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+696 text5 CODE >40:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+698 text5 CODE >41:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6BD text4 CODE >47:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6BD text4 CODE >49:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6C6 text4 CODE >50:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6D0 text4 CODE >49:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+69A text3 CODE >55:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+69A text3 CODE >65:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6A4 text3 CODE >66:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6A7 text3 CODE >68:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6A9 text2 CODE >73:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6A9 text2 CODE >76:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6AD text2 CODE >77:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6AE text2 CODE >80:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6B2 text2 CODE >81:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6B8 text2 CODE >82:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6BB text2 CODE >86:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6F1 text1 CODE >89:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6F1 text1 CODE >95:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6F8 text1 CODE >97:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+6FB text1 CODE >99:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+709 text1 CODE >100:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+70D text1 CODE >101:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+718 text1 CODE >99:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+71D maintext CODE >29:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+71D maintext CODE >44:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+72A maintext CODE >48:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+72C maintext CODE >49:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+72D maintext CODE >50:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+72E maintext CODE >51:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+72F maintext CODE >54:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+730 maintext CODE >55:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+731 maintext CODE >56:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+732 maintext CODE >57:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+733 maintext CODE >71:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+734 maintext CODE >72:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+735 maintext CODE >150:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+735 maintext CODE >156:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+738 maintext CODE >152:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+73D maintext CODE >153:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+744 maintext CODE >160:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+74B maintext CODE >161:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+752 maintext CODE >165:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+754 maintext CODE >166:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+755 maintext CODE >167:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+756 maintext CODE >168:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+757 maintext CODE >170:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+758 maintext CODE >173:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+75A maintext CODE >175:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+75C maintext CODE >181:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+763 maintext CODE >182:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+764 maintext CODE >187:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+767 maintext CODE >188:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+769 maintext CODE >189:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+76A maintext CODE >196:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+771 maintext CODE >197:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+778 maintext CODE >199:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+77E maintext CODE >208:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+784 maintext CODE >217:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+787 maintext CODE >216:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+78C maintext CODE >224:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+790 maintext CODE >227:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+797 maintext CODE >228:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+79E maintext CODE >231:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7A8 maintext CODE >232:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7BA maintext CODE >233:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7BC maintext CODE >234:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7BF maintext CODE >235:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7C6 maintext CODE >234:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7C7 maintext CODE >231:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7D2 maintext CODE >241:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7D6 maintext CODE >242:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7D6 maintext CODE >244:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7E1 maintext CODE >243:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7E6 maintext CODE >242:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7E7 maintext CODE >249:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7EB maintext CODE >250:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7EF maintext CODE >251:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7F3 maintext CODE >252:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7F7 maintext CODE >247:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+7F8 maintext CODE >263:C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -159,49 +264,135 @@ $dist/default/production\mplab_spi_t2.production.obj
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
+__end_ofmain@rf_synth_pfdcp_cpff_7 123E 0 STRCODE 0 stringtext18 dist/default/production\mplab_spi_t2.production.obj
 ___latbits 2 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+wait_for_cts@cts 79 0 COMMON 1 cstackCOMMON dist/default/production\mplab_spi_t2.production.obj
 __Hspace_0 800B 0 ABS 0 - -
-__Hspace_1 79 0 ABS 0 - -
+__Hspace_1 7E 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __size_of_init_spi 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
-write_spi_data@dat 70 0 COMMON 1 cstackCOMMON dist/default/production\mplab_spi_t2.production.obj
-__size_of_read_spi_data 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+_SSP1STATbits 214 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+write_spi_fw_cmd@dat 71 0 COMMON 1 cstackCOMMON dist/default/production\mplab_spi_t2.production.obj
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+main@timeout_cnter 35 0 BANK0 1 cstackBANK0 dist/default/production\mplab_spi_t2.production.obj
+wait_for_cts@read_cmd_buff 78 0 COMMON 1 cstackCOMMON dist/default/production\mplab_spi_t2.production.obj
+main@i 3F 0 BANK0 1 cstackBANK0 dist/default/production\mplab_spi_t2.production.obj
+read_fw_response@cts_ready 30 0 BANK0 1 cstackBANK0 dist/default/production\mplab_spi_t2.production.obj
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\YiChao\AppData\Local\Temp\sn9o.obj
-_main F6C 0 CODE 0 maintext dist/default/production\mplab_spi_t2.production.obj
+___sp 0 0 STACK 2 stack C:\Users\zhangyic\AppData\Local\Temp\sbis.obj
+_main E3A 0 CODE 0 maintext dist/default/production\mplab_spi_t2.production.obj
 btemp 7E 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
-start 4 0 CODE 0 init C:\Users\YiChao\AppData\Local\Temp\sn9o.obj
+start 4 0 CODE 0 init C:\Users\zhangyic\AppData\Local\Temp\sbis.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+__Hstringtext10 0 0 ABS 0 stringtext10 -
+__Hstringtext11 0 0 ABS 0 stringtext11 -
+__Hstringtext12 0 0 ABS 0 stringtext12 -
+__Hstringtext13 0 0 ABS 0 stringtext13 -
+__Hstringtext14 0 0 ABS 0 stringtext14 -
+__Hstringtext15 0 0 ABS 0 stringtext15 -
+__Hstringtext16 0 0 ABS 0 stringtext16 -
+__Hstringtext17 0 0 ABS 0 stringtext17 -
+__Hstringtext18 0 0 ABS 0 stringtext18 -
+__Hstringtext19 0 0 ABS 0 stringtext19 -
+__Hstringtext20 0 0 ABS 0 stringtext20 -
+__Hstringtext21 0 0 ABS 0 stringtext21 -
+__Hstringtext22 0 0 ABS 0 stringtext22 -
+__Hstringtext23 0 0 ABS 0 stringtext23 -
+__Hstringtext24 0 0 ABS 0 stringtext24 -
+__Hstringtext25 0 0 ABS 0 stringtext25 -
+__Hstringtext26 0 0 ABS 0 stringtext26 -
+__Hstringtext27 0 0 ABS 0 stringtext27 -
+__Hstringtext28 0 0 ABS 0 stringtext28 -
+__Hstringtext29 0 0 ABS 0 stringtext29 -
+__Hstringtext30 0 0 ABS 0 stringtext30 -
+__Hstringtext31 0 0 ABS 0 stringtext31 -
+__Hstringtext32 0 0 ABS 0 stringtext32 -
+__Hstringtext33 0 0 ABS 0 stringtext33 -
+__Hstringtext34 0 0 ABS 0 stringtext34 -
+main@glbl_reset 3C 0 BANK0 1 cstackBANK0 dist/default/production\mplab_spi_t2.production.obj
 __CFG_DEBUG$OFF 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
-__end_of_read_spi_data F34 0 CODE 0 text2 dist/default/production\mplab_spi_t2.production.obj
+__size_of_wait_for_cts 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+__end_of_read_spi_buffer D52 0 CODE 0 text3 dist/default/production\mplab_spi_t2.production.obj
 __Hpowerup 0 0 CODE 0 powerup -
 init_spi@spi_mode 76 0 COMMON 1 cstackCOMMON dist/default/production\mplab_spi_t2.production.obj
-intlevel0 0 0 CODE 0 functab C:\Users\YiChao\AppData\Local\Temp\sn9o.obj
-intlevel1 0 0 CODE 0 functab C:\Users\YiChao\AppData\Local\Temp\sn9o.obj
-intlevel2 0 0 CODE 0 functab C:\Users\YiChao\AppData\Local\Temp\sn9o.obj
-intlevel3 0 0 CODE 0 functab C:\Users\YiChao\AppData\Local\Temp\sn9o.obj
-intlevel4 0 0 CODE 0 functab C:\Users\YiChao\AppData\Local\Temp\sn9o.obj
-intlevel5 0 0 CODE 0 functab C:\Users\YiChao\AppData\Local\Temp\sn9o.obj
-_init_spi F34 0 CODE 0 text3 dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_match_value_1_12 105E 0 STRCODE 0 stringtext2 dist/default/production\mplab_spi_t2.production.obj
+__HdataCOMMON 0 0 ABS 0 dataCOMMON -
+intlevel0 0 0 CODE 0 functab C:\Users\zhangyic\AppData\Local\Temp\sbis.obj
+intlevel1 0 0 CODE 0 functab C:\Users\zhangyic\AppData\Local\Temp\sbis.obj
+intlevel2 0 0 CODE 0 functab C:\Users\zhangyic\AppData\Local\Temp\sbis.obj
+intlevel3 0 0 CODE 0 functab C:\Users\zhangyic\AppData\Local\Temp\sbis.obj
+intlevel4 0 0 CODE 0 functab C:\Users\zhangyic\AppData\Local\Temp\sbis.obj
+intlevel5 0 0 CODE 0 functab C:\Users\zhangyic\AppData\Local\Temp\sbis.obj
+_init_spi DAA 0 CODE 0 text6 dist/default/production\mplab_spi_t2.production.obj
+read_fw_response@resp 20 0 BANK0 1 cstackBANK0 dist/default/production\mplab_spi_t2.production.obj
 wtemp0 7E 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 __Hfunctab 0 0 CODE 0 functab -
+__end_of_wait_for_cts D7A 0 CODE 0 text2 dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_frr_ctl_a_mode_4 1292 0 STRCODE 0 stringtext23 dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_modem_raw_search2_2 12D6 0 STRCODE 0 stringtext28 dist/default/production\mplab_spi_t2.production.obj
 __Hclrtext 0 0 ABS 0 clrtext -
-__end_of_init_spi F6C 0 CODE 0 text3 dist/default/production\mplab_spi_t2.production.obj
-_write_spi_data F1A 0 CODE 0 text1 dist/default/production\mplab_spi_t2.production.obj
-_SSPCONbits 215 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+__end_of_init_spi DE2 0 CODE 0 text6 dist/default/production\mplab_spi_t2.production.obj
+read_fw_response@num_bytes 7A 0 COMMON 1 cstackCOMMON dist/default/production\mplab_spi_t2.production.obj
+__pidataCOMMON D20 0 CODE 0 idataCOMMON dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_modem_rssi_mute_1 12EC 0 STRCODE 0 stringtext30 dist/default/production\mplab_spi_t2.production.obj
+read_fw_response@i 31 0 BANK0 1 cstackBANK0 dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_set_properties 103E 0 STRCODE 0 stringtext1 dist/default/production\mplab_spi_t2.production.obj
+__LdataCOMMON 0 0 ABS 0 dataCOMMON -
+_read_spi_buffer D34 0 CODE 0 text3 dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_global_xo_tune_2 12E2 0 STRCODE 0 stringtext29 dist/default/production\mplab_spi_t2.production.obj
 __CFG_RSTOSC$EXT1X 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 __Lmaintext 0 0 ABS 0 maintext -
+__end_ofmain@rf_pkt_rx_threshold_12 119E 0 STRCODE 0 stringtext12 dist/default/production\mplab_spi_t2.production.obj
 __CFG_FEXTOSC$ECH 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
-start_initialization FFA 0 CODE 0 cinit dist/default/production\mplab_spi_t2.production.obj
-__end_of_write_spi_data F22 0 CODE 0 text1 dist/default/production\mplab_spi_t2.production.obj
+main@rf_set_properties 1000 0 STRCODE 0 stringtext1 dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_pkt_rx_field_4_crc_config_5 1262 0 STRCODE 0 stringtext20 dist/default/production\mplab_spi_t2.production.obj
+main@GPIO_1_unreliable 3D 0 BANK0 1 cstackBANK0 dist/default/production\mplab_spi_t2.production.obj
+write_spi_fw_cmd@i 73 0 COMMON 1 cstackCOMMON dist/default/production\mplab_spi_t2.production.obj
+__LidataCOMMON 0 0 ABS 0 idataCOMMON -
+__end_ofmain@rf_int_ctl_enable_1 130A 0 STRCODE 0 stringtext33 dist/default/production\mplab_spi_t2.production.obj
+__Lstringtext10 0 0 ABS 0 stringtext10 -
+__Lstringtext11 0 0 ABS 0 stringtext11 -
+__Lstringtext12 0 0 ABS 0 stringtext12 -
+__Lstringtext13 0 0 ABS 0 stringtext13 -
+__Lstringtext14 0 0 ABS 0 stringtext14 -
+__Lstringtext15 0 0 ABS 0 stringtext15 -
+__Lstringtext16 0 0 ABS 0 stringtext16 -
+__Lstringtext17 0 0 ABS 0 stringtext17 -
+__Lstringtext18 0 0 ABS 0 stringtext18 -
+__Lstringtext19 0 0 ABS 0 stringtext19 -
+__Lstringtext20 0 0 ABS 0 stringtext20 -
+__Lstringtext21 0 0 ABS 0 stringtext21 -
+__Lstringtext22 0 0 ABS 0 stringtext22 -
+__Lstringtext23 0 0 ABS 0 stringtext23 -
+__Lstringtext24 0 0 ABS 0 stringtext24 -
+__Lstringtext25 0 0 ABS 0 stringtext25 -
+__Lstringtext26 0 0 ABS 0 stringtext26 -
+__Lstringtext27 0 0 ABS 0 stringtext27 -
+__Lstringtext28 0 0 ABS 0 stringtext28 -
+__Lstringtext29 0 0 ABS 0 stringtext29 -
+__Lstringtext30 0 0 ABS 0 stringtext30 -
+__Lstringtext31 0 0 ABS 0 stringtext31 -
+__Lstringtext32 0 0 ABS 0 stringtext32 -
+__Lstringtext33 0 0 ABS 0 stringtext33 -
+__Lstringtext34 0 0 ABS 0 stringtext34 -
+start_initialization FF4 0 CODE 0 cinit dist/default/production\mplab_spi_t2.production.obj
+main@cts_ready 3B 0 BANK0 1 cstackBANK0 dist/default/production\mplab_spi_t2.production.obj
+_TRISAbits 8C 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+_TRISBbits 8D 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+_TRISCbits 8E 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+main@nIRQ_unreliable 3E 0 BANK0 1 cstackBANK0 dist/default/production\mplab_spi_t2.production.obj
+_read_fw_response DE2 0 CODE 0 text1 dist/default/production\mplab_spi_t2.production.obj
 init_spi@sspen 74 0 COMMON 1 cstackCOMMON dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_modem_freq_dev_0_1 1300 0 STRCODE 0 stringtext32 dist/default/production\mplab_spi_t2.production.obj
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\mplab_spi_t2.production.obj
 _SSPBUF 211 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
-_TRISC7 477 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+main@timeout 39 0 BANK0 1 cstackBANK0 dist/default/production\mplab_spi_t2.production.obj
 init_spi@spi_clk_edge 70 0 COMMON 1 cstackCOMMON dist/default/production\mplab_spi_t2.production.obj
-___int_sp 0 0 STACK 2 stack C:\Users\YiChao\AppData\Local\Temp\sn9o.obj
+__end_ofmain@rf_preamble_tx_length_9 1210 0 STRCODE 0 stringtext16 dist/default/production\mplab_spi_t2.production.obj
+___int_sp 0 0 STACK 2 stack C:\Users\zhangyic\AppData\Local\Temp\sbis.obj
+__size_of_read_spi_buffer 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -238,6 +429,7 @@ __Hsfr29 0 0 ABS 0 sfr29 -
 __Hsfr30 0 0 ABS 0 sfr30 -
 __Hsfr31 0 0 ABS 0 sfr31 -
 __Hstack 0 0 STACK 2 stack -
+__end_ofmain@rf_power_up 12BE 0 STRCODE 0 stringtext26 dist/default/production\mplab_spi_t2.production.obj
 __Hbank10 0 0 ABS 0 bank10 -
 __Hbank11 0 0 ABS 0 bank11 -
 __Hbank12 0 0 ABS 0 bank12 -
@@ -274,8 +466,9 @@ __Lbank6 0 0 ABS 0 bank6 -
 __Lbank7 0 0 ABS 0 bank7 -
 __Lbank8 0 0 ABS 0 bank8 -
 __Lbank9 0 0 ABS 0 bank9 -
-__Lcinit FFA 0 CODE 0 cinit -
+__Lcinit FF4 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 0 idloc -
+__end_ofmain@rf_pkt_rx_field_1_crc_config_12 115E 0 STRCODE 0 stringtext10 dist/default/production\mplab_spi_t2.production.obj
 __Lsfr10 0 0 ABS 0 sfr10 -
 __Lsfr11 0 0 ABS 0 sfr11 -
 __Lsfr12 0 0 ABS 0 sfr12 -
@@ -299,6 +492,9 @@ __Lsfr29 0 0 ABS 0 sfr29 -
 __Lsfr30 0 0 ABS 0 sfr30 -
 __Lsfr31 0 0 ABS 0 sfr31 -
 __Lstack 0 0 STACK 2 stack -
+_PORTAbits C 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+_PORTCbits E 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_modem_agc_window_size_12 10DE 0 STRCODE 0 stringtext6 dist/default/production\mplab_spi_t2.production.obj
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hinit 4 0 CODE 0 init -
@@ -327,18 +523,72 @@ __Lsfr7 0 0 ABS 0 sfr7 -
 __Lsfr8 0 0 ABS 0 sfr8 -
 __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
+__pstringtext1 1000 0 STRCODE 0 stringtext1 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext2 103E 0 STRCODE 0 stringtext2 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext3 105E 0 STRCODE 0 stringtext3 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext4 107E 0 STRCODE 0 stringtext4 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext5 109E 0 STRCODE 0 stringtext5 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext6 10BE 0 STRCODE 0 stringtext6 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext7 10DE 0 STRCODE 0 stringtext7 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext8 10FE 0 STRCODE 0 stringtext8 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext9 111E 0 STRCODE 0 stringtext9 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext10 113E 0 STRCODE 0 stringtext10 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext11 115E 0 STRCODE 0 stringtext11 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext12 117E 0 STRCODE 0 stringtext12 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext13 119E 0 STRCODE 0 stringtext13 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext14 11BE 0 STRCODE 0 stringtext14 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext15 11DA 0 STRCODE 0 stringtext15 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext16 11F6 0 STRCODE 0 stringtext16 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext17 1210 0 STRCODE 0 stringtext17 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext18 1228 0 STRCODE 0 stringtext18 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext19 123E 0 STRCODE 0 stringtext19 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext20 1250 0 STRCODE 0 stringtext20 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext21 1262 0 STRCODE 0 stringtext21 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext22 1272 0 STRCODE 0 stringtext22 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext23 1282 0 STRCODE 0 stringtext23 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext24 1292 0 STRCODE 0 stringtext24 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext25 12A2 0 STRCODE 0 stringtext25 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext26 12B0 0 STRCODE 0 stringtext26 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext27 12BE 0 STRCODE 0 stringtext27 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext28 12CA 0 STRCODE 0 stringtext28 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext29 12D6 0 STRCODE 0 stringtext29 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext30 12E2 0 STRCODE 0 stringtext30 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext31 12EC 0 STRCODE 0 stringtext31 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext32 12F6 0 STRCODE 0 stringtext32 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext33 1300 0 STRCODE 0 stringtext33 dist/default/production\mplab_spi_t2.production.obj
+__pstringtext34 130A 0 STRCODE 0 stringtext34 dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_modem_chflt_rx1_chflt_coe1_7_0_12 109E 0 STRCODE 0 stringtext4 dist/default/production\mplab_spi_t2.production.obj
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-_RC7 77 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 __S0 800B 0 ABS 0 - -
-__S1 79 0 ABS 0 - -
+__S1 7E 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
+__end_ofmain@rf_modem_agc_control_1 12F6 0 STRCODE 0 stringtext31 dist/default/production\mplab_spi_t2.production.obj
+__end_of_read_fw_response E3A 0 CODE 0 text1 dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_freq_control_inte_8 1228 0 STRCODE 0 stringtext17 dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_global_config_1 1314 0 STRCODE 0 stringtext34 dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_modem_raw_control_10 11DA 0 STRCODE 0 stringtext14 dist/default/production\mplab_spi_t2.production.obj
+__HidataCOMMON 0 0 ABS 0 idataCOMMON -
+main@rf_power_up 12B0 0 STRCODE 0 stringtext26 dist/default/production\mplab_spi_t2.production.obj
+__size_of_read_fw_response 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_pkt_crc_seed_31_24_4 1282 0 STRCODE 0 stringtext22 dist/default/production\mplab_spi_t2.production.obj
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 __CFG_BORV$LOW 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 __Lintentry 4 0 CODE 0 intentry -
-?_read_spi_data 70 0 COMMON 1 cstackCOMMON dist/default/production\mplab_spi_t2.production.obj
-reset_vec 0 0 CODE 0 reset_vec C:\Users\YiChao\AppData\Local\Temp\sn9o.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\zhangyic\AppData\Local\Temp\sbis.obj
+__end_ofmain@rf_pa_mode_4 1272 0 STRCODE 0 stringtext21 dist/default/production\mplab_spi_t2.production.obj
 __CFG_FCMEN$ON 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+__Lstringtext1 0 0 ABS 0 stringtext1 -
+__Lstringtext2 0 0 ABS 0 stringtext2 -
+__Lstringtext3 0 0 ABS 0 stringtext3 -
+__Lstringtext4 0 0 ABS 0 stringtext4 -
+__Lstringtext5 0 0 ABS 0 stringtext5 -
+__Lstringtext6 0 0 ABS 0 stringtext6 -
+__Lstringtext7 0 0 ABS 0 stringtext7 -
+__Lstringtext8 0 0 ABS 0 stringtext8 -
+__Lstringtext9 0 0 ABS 0 stringtext9 -
+_write_spi_buffer D22 0 CODE 0 text5 dist/default/production\mplab_spi_t2.production.obj
 __Lbank10 0 0 ABS 0 bank10 -
 __Lbank11 0 0 ABS 0 bank11 -
 __Lbank12 0 0 ABS 0 bank12 -
@@ -361,19 +611,31 @@ __Lbank28 0 0 BANK28 1 bank28 -
 __Lbank29 0 0 BANK29 1 bank29 -
 __Lbank30 0 0 BANK30 1 bank30 -
 __Lbank31 0 0 BANK31 1 bank31 -
-__pmaintext F6C 0 CODE 0 maintext dist/default/production\mplab_spi_t2.production.obj
+__pmaintext E3A 0 CODE 0 maintext dist/default/production\mplab_spi_t2.production.obj
 __Lbigram 0 0 ABS 0 bigram -
+_write_spi_fw_cmd D7A 0 CODE 0 text4 dist/default/production\mplab_spi_t2.production.obj
+main@SPI_CTS_unreliable 3A 0 BANK0 1 cstackBANK0 dist/default/production\mplab_spi_t2.production.obj
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 1000E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_modem_spike_det_2 12CA 0 STRCODE 0 stringtext27 dist/default/production\mplab_spi_t2.production.obj
 init_spi@clk_cfg 71 0 COMMON 1 cstackCOMMON dist/default/production\mplab_spi_t2.production.obj
-stackhi 23EF 0 ABS 0 - C:\Users\YiChao\AppData\Local\Temp\sn9o.obj
-stacklo 2000 0 ABS 0 - C:\Users\YiChao\AppData\Local\Temp\sn9o.obj
+__end_ofmain@rf_pkt_crc_config_12 11BE 0 STRCODE 0 stringtext13 dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_sync_config_10 11F6 0 STRCODE 0 stringtext15 dist/default/production\mplab_spi_t2.production.obj
+main@delay 37 0 BANK0 1 cstackBANK0 dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_modem_bcr_nco_offset_2_12 10FE 0 STRCODE 0 stringtext7 dist/default/production\mplab_spi_t2.production.obj
+stackhi 23EF 0 ABS 0 - C:\Users\zhangyic\AppData\Local\Temp\sbis.obj
+stacklo 2021 0 ABS 0 - C:\Users\zhangyic\AppData\Local\Temp\sbis.obj
+__end_ofmain@rf_modem_chflt_rx2_chflt_coe7_7_0_12 107E 0 STRCODE 0 stringtext3 dist/default/production\mplab_spi_t2.production.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
+main@rf_gpio_pin_cfg 1292 0 STRCODE 0 stringtext24 dist/default/production\mplab_spi_t2.production.obj
 __CFG_LPBOREN$OFF 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
+write_spi_buffer@data 70 0 COMMON 1 cstackCOMMON dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_modem_chflt_rx1_chflt_coe13_7_0_12 10BE 0 STRCODE 0 stringtext5 dist/default/production\mplab_spi_t2.production.obj
 __Lend_init 4 0 CODE 0 end_init -
 __CFG_LVP$ON 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 __CFG_CSWEN$ON 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
@@ -382,35 +644,56 @@ end_of_initialization FFA 0 CODE 0 cinit dist/default/production\mplab_spi_t2.pr
 __Hintentry 4 0 CODE 0 intentry -
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 __Lstrings 0 0 ABS 0 strings -
-__size_of_write_spi_data 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_modem_dsa_ctrl1_5 1250 0 STRCODE 0 stringtext19 dist/default/production\mplab_spi_t2.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec -
-__ptext1 F1A 0 CODE 0 text1 dist/default/production\mplab_spi_t2.production.obj
-__ptext2 F22 0 CODE 0 text2 dist/default/production\mplab_spi_t2.production.obj
-__ptext3 F34 0 CODE 0 text3 dist/default/production\mplab_spi_t2.production.obj
+__end_of_write_spi_buffer D34 0 CODE 0 text5 dist/default/production\mplab_spi_t2.production.obj
+_SSPCON1bits 215 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+__ptext1 DE2 0 CODE 0 text1 dist/default/production\mplab_spi_t2.production.obj
+__ptext2 D52 0 CODE 0 text2 dist/default/production\mplab_spi_t2.production.obj
+__ptext3 D34 0 CODE 0 text3 dist/default/production\mplab_spi_t2.production.obj
+__ptext4 D7A 0 CODE 0 text4 dist/default/production\mplab_spi_t2.production.obj
+__ptext5 D22 0 CODE 0 text5 dist/default/production\mplab_spi_t2.production.obj
+__ptext6 DAA 0 CODE 0 text6 dist/default/production\mplab_spi_t2.production.obj
+__size_of_write_spi_buffer 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__end_of_write_spi_fw_cmd DAA 0 CODE 0 text4 dist/default/production\mplab_spi_t2.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec -
-_read_spi_data F22 0 CODE 0 text2 dist/default/production\mplab_spi_t2.production.obj
+__Hstringtext1 0 0 ABS 0 stringtext1 -
+__Hstringtext2 0 0 ABS 0 stringtext2 -
+__Hstringtext3 0 0 ABS 0 stringtext3 -
+__Hstringtext4 0 0 ABS 0 stringtext4 -
+__Hstringtext5 0 0 ABS 0 stringtext5 -
+__Hstringtext6 0 0 ABS 0 stringtext6 -
+__Hstringtext7 0 0 ABS 0 stringtext7 -
+__Hstringtext8 0 0 ABS 0 stringtext8 -
+__Hstringtext9 0 0 ABS 0 stringtext9 -
+__size_of_write_spi_fw_cmd 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 __CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 __CFG_WDTE$ON 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 __end_of__initialization FFA 0 CODE 0 cinit dist/default/production\mplab_spi_t2.production.obj
 __Lfunctab 0 0 CODE 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
+_SSP1CON1bits 215 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_modem_tx_ramp_delay_12 111E 0 STRCODE 0 stringtext8 dist/default/production\mplab_spi_t2.production.obj
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\mplab_spi_t2.production.obj
 __Hend_init 8 0 CODE 0 end_init -
-__end_of_main FFA 0 CODE 0 maintext dist/default/production\mplab_spi_t2.production.obj
-_PORTA C 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
-_PORTB D 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
-_TRISA 8C 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
-_TRISB 8D 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_modem_mod_type_12 113E 0 STRCODE 0 stringtext9 dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_gpio_pin_cfg 12A2 0 STRCODE 0 stringtext24 dist/default/production\mplab_spi_t2.production.obj
+__end_of_main FF4 0 CODE 0 maintext dist/default/production\mplab_spi_t2.production.obj
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
+_dummy 7D 0 COMMON 1 dataCOMMON dist/default/production\mplab_spi_t2.production.obj
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 _SSPSTATbits 214 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 __CFG_PPS1WAY$ON 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
-__initialization FFA 0 CODE 0 cinit dist/default/production\mplab_spi_t2.production.obj
+__initialization FF4 0 CODE 0 cinit dist/default/production\mplab_spi_t2.production.obj
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+__pdataCOMMON 7D 0 COMMON 1 dataCOMMON dist/default/production\mplab_spi_t2.production.obj
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_modem_afc_limiter_1_3 12B0 0 STRCODE 0 stringtext25 dist/default/production\mplab_spi_t2.production.obj
+__end_ofmain@rf_pkt_field_3_crc_config_12 117E 0 STRCODE 0 stringtext11 dist/default/production\mplab_spi_t2.production.obj
+_wait_for_cts D52 0 CODE 0 text2 dist/default/production\mplab_spi_t2.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -436,11 +719,17 @@ __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\mplab_spi_t2.production.obj
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 7FD FFA 3 2
-text1 0 78D F1A 4 2
-text2 0 791 F22 9 2
-text3 0 79A F34 1C 2
-maintext 0 7B6 F6C 47 2
-cstackCOMMON 1 70 70 9 1
+cinit 0 7FA FF4 6 2
+text1 0 6F1 DE2 2C 2
+text2 0 6A9 D52 14 2
+text3 0 69A D34 F 2
+text4 0 6BD D7A 18 2
+text5 0 691 D22 9 2
+text6 0 6D5 DAA 1C 2
+idataCOMMON 0 690 D20 1 2
+maintext 0 71D E3A DD 2
+cstackCOMMON 1 70 70 E 1
+cstackBANK0 1 20 20 21 1
+stringtext1 0 800 1000 18A 2
 reset_vec 0 0 0 4 2
 config 0 8007 1000E 4 2

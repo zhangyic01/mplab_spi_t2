@@ -1,36 +1,68 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"16 main.c
-[c E7988 1 0 .. ]
-[n E7988 . SPI_MASTER SPI_SLAVE  ]
-[c E7992 0 1 .. ]
-[n E7992 . SPI_POSEDGE SPI_NEGEDGE  ]
-[c E7996 9 8 1 0 65 64 1010 .. ]
-[n E7996 . SPI_M_T2_DIV2 SPI_M_FOSC_DIV64 SPI_M_FOSC_DIV16 SPI_M_FOSC_DIV4 SPI_S_IN_DIS SPI_S_IN_EN SPI_M_FOSC_CUST  ]
-[c E8005 1 0 .. ]
-[n E8005 . SPI_CLK_HIGH_IN_IDLE SPI_CLK_LOW_IN_IDLE  ]
-"62 spi.h
-[v _init_spi `(v ~T0 @X0 0 ef5`E7988`E7992`E7996`E8005`i ]
-"1593 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f18345.h
-[v _TRISB `Vuc ~T0 @X0 0 e@141 ]
-"1548
-[v _TRISA `Vuc ~T0 @X0 0 e@140 ]
-"382
-[v _PORTA `Vuc ~T0 @X0 0 e@12 ]
-"22238
-[v _TRISC7 `Vb ~T0 @X0 0 e@1143 ]
-"21666
-[v _RC7 `Vb ~T0 @X0 0 e@119 ]
-[v F7978 `(v ~T0 @X0 1 tf1`ul ]
-"152 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic.h
-[v __delay `JF7978 ~T0 @X0 0 e ]
-[p i __delay ]
-"63 spi.h
-[v _write_spi_data `(v ~T0 @X0 0 ef1`i ]
-"432 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f18345.h
-[v _PORTB `Vuc ~T0 @X0 0 e@13 ]
-"65 spi.h
-[v _read_spi_data `(i ~T0 @X0 0 ef ]
+"44 main.c
+[c E7992 1 0 .. ]
+[n E7992 . SPI_MASTER SPI_SLAVE  ]
+[c E7996 0 1 .. ]
+[n E7996 . SPI_POSEDGE SPI_NEGEDGE  ]
+[c E8000 9 8 1 0 65 64 1010 .. ]
+[n E8000 . SPI_M_T2_DIV2 SPI_M_FOSC_DIV64 SPI_M_FOSC_DIV16 SPI_M_FOSC_DIV4 SPI_S_IN_DIS SPI_S_IN_EN SPI_M_FOSC_CUST  ]
+[c E8009 1 0 .. ]
+[n E8009 . SPI_CLK_HIGH_IN_IDLE SPI_CLK_LOW_IN_IDLE  ]
+"69 spi.h
+[v _init_spi `(v ~T0 @X0 0 ef5`E7992`E7996`E8000`E8009`i ]
+"1638 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f18345.h
+[s S90 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S90 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1637
+[u S89 `S90 1 ]
+[n S89 . . ]
+"1649
+[v _TRISCbits `VS89 ~T0 @X0 0 e@142 ]
+"1599
+[s S88 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S88 . . TRISB4 TRISB5 TRISB6 TRISB7 ]
+"1598
+[u S87 `S88 1 ]
+[n S87 . . ]
+"1607
+[v _TRISBbits `VS87 ~T0 @X0 0 e@141 ]
+"1554
+[s S86 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S86 . TRISA0 TRISA1 TRISA2 . TRISA4 TRISA5 ]
+"1553
+[u S85 `S86 1 ]
+[n S85 . . ]
+"1563
+[v _TRISAbits `VS85 ~T0 @X0 0 e@140 ]
+"477
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"476
+[u S36 `S37 1 ]
+[n S36 . . ]
+"488
+[v _PORTCbits `VS36 ~T0 @X0 0 e@14 ]
+"73 spi.h
+[v _write_spi_fw_cmd `(v ~T0 @X0 0 ef1`*uc ]
+"78
+[v _read_fw_response `(*uc ~T0 @X0 0 ef1`i ]
+"388 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f18345.h
+[s S33 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S33 . RA0 RA1 RA2 RA3 RA4 RA5 ]
+"387
+[u S32 `S33 1 ]
+[n S32 . . ]
+"397
+[v _PORTAbits `VS32 ~T0 @X0 0 e@12 ]
+"77 spi.h
+[v _read_spi_buffer `(uc ~T0 @X0 0 ef ]
+"4098 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f18345.h
+[v _SSPBUF `Vuc ~T0 @X0 0 e@529 ]
+"75 spi.h
+[v _wait_for_cts `(uc ~T0 @X0 0 ef ]
+"72
+[v _write_spi_buffer `(uc ~T0 @X0 0 ef1`uc ]
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -7659,98 +7691,1029 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 192: extern unsigned char __resetbits;
 [; ;pic.h: 193: extern __bit __powerdown;
 [; ;pic.h: 194: extern __bit __timeout;
-[; ;spi.h: 30: typedef enum
-[; ;spi.h: 31: {
-[; ;spi.h: 32: SPI_MASTER = 1,
-[; ;spi.h: 33: SPI_SLAVE = 0
-[; ;spi.h: 34: }spi_smp_t;
+[; ;spi.h: 30: typedef unsigned char UINT8;
+[; ;spi.h: 31: typedef signed char INT8;
+[; ;spi.h: 32: typedef unsigned char BOOL;
+"34 spi.h
+[v _dummy `uc ~T0 @X0 1 e ]
+[i _dummy
+-> -> 255 `i `uc
+]
+[; ;spi.h: 34: UINT8 dummy = 0xff;
 [; ;spi.h: 37: typedef enum
 [; ;spi.h: 38: {
-[; ;spi.h: 39: SPI_POSEDGE = 0,
-[; ;spi.h: 40: SPI_NEGEDGE = 1
-[; ;spi.h: 41: }spi_cke_t;
+[; ;spi.h: 39: SPI_MASTER = 1,
+[; ;spi.h: 40: SPI_SLAVE = 0
+[; ;spi.h: 41: }spi_smp_t;
 [; ;spi.h: 44: typedef enum
 [; ;spi.h: 45: {
-[; ;spi.h: 46: SPI_M_T2_DIV2 = 0011,
-[; ;spi.h: 47: SPI_M_FOSC_DIV64 = 0010,
-[; ;spi.h: 48: SPI_M_FOSC_DIV16 = 0001,
-[; ;spi.h: 49: SPI_M_FOSC_DIV4 = 0000,
-[; ;spi.h: 50: SPI_S_IN_DIS = 0101,
-[; ;spi.h: 51: SPI_S_IN_EN = 0100,
-[; ;spi.h: 52: SPI_M_FOSC_CUST = 1010
-[; ;spi.h: 53: } spi_sspm_t;
-[; ;spi.h: 55: typedef enum
-[; ;spi.h: 56: {
-[; ;spi.h: 57: SPI_CLK_HIGH_IN_IDLE = 1,
-[; ;spi.h: 58: SPI_CLK_LOW_IN_IDLE = 0
-[; ;spi.h: 59: }spi_ckp_t;
-[; ;spi.h: 62: extern void init_spi(spi_smp_t spi_mode, spi_cke_t spi_clk_edge, spi_sspm_t clk_cfg, spi_ckp_t clk_idle_cfg, int sspen);
-[; ;spi.h: 63: extern void write_spi_data(int dat);
-[; ;spi.h: 64: extern unsigned read_spi_data_rdy();
-[; ;spi.h: 65: extern int read_spi_data();
+[; ;spi.h: 46: SPI_POSEDGE = 0,
+[; ;spi.h: 47: SPI_NEGEDGE = 1
+[; ;spi.h: 48: }spi_cke_t;
+[; ;spi.h: 51: typedef enum
+[; ;spi.h: 52: {
+[; ;spi.h: 53: SPI_M_T2_DIV2 = 0011,
+[; ;spi.h: 54: SPI_M_FOSC_DIV64 = 0010,
+[; ;spi.h: 55: SPI_M_FOSC_DIV16 = 0001,
+[; ;spi.h: 56: SPI_M_FOSC_DIV4 = 0000,
+[; ;spi.h: 57: SPI_S_IN_DIS = 0101,
+[; ;spi.h: 58: SPI_S_IN_EN = 0100,
+[; ;spi.h: 59: SPI_M_FOSC_CUST = 1010
+[; ;spi.h: 60: } spi_sspm_t;
+[; ;spi.h: 62: typedef enum
+[; ;spi.h: 63: {
+[; ;spi.h: 64: SPI_CLK_HIGH_IN_IDLE = 1,
+[; ;spi.h: 65: SPI_CLK_LOW_IN_IDLE = 0
+[; ;spi.h: 66: }spi_ckp_t;
+[; ;spi.h: 69: extern void init_spi(spi_smp_t spi_mode, spi_cke_t spi_clk_edge, spi_sspm_t clk_cfg, spi_ckp_t clk_idle_cfg, int sspen);
+[; ;spi.h: 72: extern UINT8 write_spi_buffer(UINT8 data);
+[; ;spi.h: 73: extern void write_spi_fw_cmd(UINT8 *dat);
+[; ;spi.h: 75: extern BOOL wait_for_cts();
+[; ;spi.h: 77: extern UINT8 read_spi_buffer();
+[; ;spi.h: 78: extern UINT8* read_fw_response(int num_bytes);
 [v $root$_main `(v ~T0 @X0 0 e ]
-"13 main.c
+"29 main.c
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 13: void main(void) {
+[; ;main.c: 29: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 16: init_spi(SPI_MASTER,SPI_POSEDGE,SPI_M_FOSC_DIV4,SPI_CLK_LOW_IN_IDLE, 1);
-"16
-[e ( _init_spi (4 , , , , . `E7988 0 . `E7992 0 . `E7996 3 . `E8005 1 -> 1 `i ]
-[; ;main.c: 19: TRISB = 0xFF;
-"19
-[e = _TRISB -> -> 255 `i `uc ]
-[; ;main.c: 20: TRISA = 0x00;
-"20
-[e = _TRISA -> -> 0 `i `uc ]
-[; ;main.c: 21: PORTA = 0x00;
-"21
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 22: TRISC7 = 0;
-"22
-[e = _TRISC7 -> -> 0 `i `b ]
-[; ;main.c: 23: RC7 = 1;
-"23
-[e = _RC7 -> -> 1 `i `b ]
-[; ;main.c: 26: while(1)
-"26
+[; ;main.c: 44: init_spi (SPI_MASTER,SPI_POSEDGE,SPI_M_FOSC_DIV4,SPI_CLK_LOW_IN_IDLE, 1);
+"44
+[e ( _init_spi (4 , , , , . `E7992 0 . `E7996 0 . `E8000 3 . `E8009 1 -> 1 `i ]
+[; ;main.c: 48: TRISCbits.TRISC0 = 0;
+"48
+[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 49: TRISCbits.TRISC1 = 1;
+"49
+[e = . . _TRISCbits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 50: TRISCbits.TRISC2 = 0;
+"50
+[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 51: TRISCbits.TRISC3 = 0;
+"51
+[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 54: TRISBbits.TRISB4 = 1;
+"54
+[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 55: TRISBbits.TRISB5 = 1;
+"55
+[e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 56: TRISBbits.TRISB6 = 0;
+"56
+[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 57: TRISBbits.TRISB7 = 1;
+"57
+[e = . . _TRISBbits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 71: TRISCbits.TRISC4 = 1;
+"71
+[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 72: TRISAbits.TRISA2 = 1;
+"72
+[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+"76
+[v F8029 `Cuc ~T0 @X0 -> 0 `x s rf_power_up ]
+[i F8029
+:U ..
+-> -> 2 `i `uc
+-> -> 1 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 201 `i `uc
+-> -> 195 `i `uc
+-> -> 128 `i `uc
+..
+]
+"77
+[v F8030 `Cuc ~T0 @X0 -> 0 `x s rf_gpio_pin_cfg ]
+[i F8030
+:U ..
+-> -> 19 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"78
+[v F8031 `Cuc ~T0 @X0 -> 0 `x s rf_global_xo_tune_2 ]
+[i F8031
+:U ..
+-> -> 17 `i `uc
+-> -> 0 `i `uc
+-> -> 2 `i `uc
+-> -> 0 `i `uc
+-> -> 82 `i `uc
+-> -> 64 `i `uc
+..
+]
+"79
+[v F8032 `Cuc ~T0 @X0 -> 0 `x s rf_global_config_1 ]
+[i F8032
+:U ..
+-> -> 17 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 3 `i `uc
+-> -> 32 `i `uc
+..
+]
+"80
+[v F8033 `Cuc ~T0 @X0 -> 0 `x s rf_int_ctl_enable_1 ]
+[i F8033
+:U ..
+-> -> 17 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"81
+[v F8034 `Cuc ~T0 @X0 -> 0 `x s rf_frr_ctl_a_mode_4 ]
+[i F8034
+:U ..
+-> -> 17 `i `uc
+-> -> 2 `i `uc
+-> -> 4 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"82
+[v F8035 `Cuc ~T0 @X0 -> 0 `x s rf_preamble_tx_length_9 ]
+[i F8035
+:U ..
+-> -> 17 `i `uc
+-> -> 16 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+-> -> 8 `i `uc
+-> -> 20 `i `uc
+-> -> 0 `i `uc
+-> -> 15 `i `uc
+-> -> 49 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"83
+[v F8036 `Cuc ~T0 @X0 -> 0 `x s rf_sync_config_10 ]
+[i F8036
+:U ..
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 10 `i `uc
+-> -> 0 `i `uc
+-> -> 9 `i `uc
+-> -> 180 `i `uc
+-> -> 43 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"84
+[v F8037 `Cuc ~T0 @X0 -> 0 `x s rf_pkt_crc_config_12 ]
+[i F8037
+:U ..
+-> -> 17 `i `uc
+-> -> 18 `i `uc
+-> -> 12 `i `uc
+-> -> 0 `i `uc
+-> -> 4 `i `uc
+-> -> 0 `i `uc
+-> -> 48 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 32 `i `uc
+-> -> 34 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 48 `i `uc
+..
+]
+"85
+[v F8038 `Cuc ~T0 @X0 -> 0 `x s rf_pkt_rx_threshold_12 ]
+[i F8038
+:U ..
+-> -> 17 `i `uc
+-> -> 18 `i `uc
+-> -> 12 `i `uc
+-> -> 12 `i `uc
+-> -> 48 `i `uc
+-> -> 0 `i `uc
+-> -> 7 `i `uc
+-> -> 20 `i `uc
+-> -> 128 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"86
+[v F8039 `Cuc ~T0 @X0 -> 0 `x s rf_pkt_field_3_crc_config_12 ]
+[i F8039
+:U ..
+-> -> 17 `i `uc
+-> -> 18 `i `uc
+-> -> 12 `i `uc
+-> -> 24 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"87
+[v F8040 `Cuc ~T0 @X0 -> 0 `x s rf_pkt_rx_field_1_crc_config_12 ]
+[i F8040
+:U ..
+-> -> 17 `i `uc
+-> -> 18 `i `uc
+-> -> 12 `i `uc
+-> -> 36 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"88
+[v F8041 `Cuc ~T0 @X0 -> 0 `x s rf_pkt_rx_field_4_crc_config_5 ]
+[i F8041
+:U ..
+-> -> 17 `i `uc
+-> -> 18 `i `uc
+-> -> 5 `i `uc
+-> -> 48 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"89
+[v F8042 `Cuc ~T0 @X0 -> 0 `x s rf_pkt_crc_seed_31_24_4 ]
+[i F8042
+:U ..
+-> -> 17 `i `uc
+-> -> 18 `i `uc
+-> -> 4 `i `uc
+-> -> 54 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"90
+[v F8043 `Cuc ~T0 @X0 -> 0 `x s rf_modem_mod_type_12 ]
+[i F8043
+:U ..
+-> -> 17 `i `uc
+-> -> 32 `i `uc
+-> -> 12 `i `uc
+-> -> 0 `i `uc
+-> -> 4 `i `uc
+-> -> 0 `i `uc
+-> -> 7 `i `uc
+-> -> 1 `i `uc
+-> -> 134 `i `uc
+-> -> 160 `i `uc
+-> -> 1 `i `uc
+-> -> 201 `i `uc
+-> -> 195 `i `uc
+-> -> 128 `i `uc
+-> -> 0 `i `uc
+-> -> 8 `i `uc
+..
+]
+"91
+[v F8044 `Cuc ~T0 @X0 -> 0 `x s rf_modem_freq_dev_0_1 ]
+[i F8044
+:U ..
+-> -> 17 `i `uc
+-> -> 32 `i `uc
+-> -> 1 `i `uc
+-> -> 12 `i `uc
+-> -> 49 `i `uc
+..
+]
+"92
+[v F8045 `Cuc ~T0 @X0 -> 0 `x s rf_modem_tx_ramp_delay_12 ]
+[i F8045
+:U ..
+-> -> 17 `i `uc
+-> -> 32 `i `uc
+-> -> 12 `i `uc
+-> -> 24 `i `uc
+-> -> 4 `i `uc
+-> -> 0 `i `uc
+-> -> 8 `i `uc
+-> -> 3 `i `uc
+-> -> 192 `i `uc
+-> -> 0 `i `uc
+-> -> 16 `i `uc
+-> -> 16 `i `uc
+-> -> 0 `i `uc
+-> -> 232 `i `uc
+-> -> 1 `i `uc
+-> -> 244 `i `uc
+..
+]
+"93
+[v F8046 `Cuc ~T0 @X0 -> 0 `x s rf_modem_bcr_nco_offset_2_12 ]
+[i F8046
+:U ..
+-> -> 17 `i `uc
+-> -> 32 `i `uc
+-> -> 12 `i `uc
+-> -> 36 `i `uc
+-> -> 1 `i `uc
+-> -> 6 `i `uc
+-> -> 37 `i `uc
+-> -> 0 `i `uc
+-> -> 22 `i `uc
+-> -> 2 `i `uc
+-> -> 2 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 18 `i `uc
+-> -> 128 `i `uc
+-> -> 44 `i `uc
+..
+]
+"94
+[v F8047 `Cuc ~T0 @X0 -> 0 `x s rf_modem_afc_limiter_1_3 ]
+[i F8047
+:U ..
+-> -> 17 `i `uc
+-> -> 32 `i `uc
+-> -> 3 `i `uc
+-> -> 48 `i `uc
+-> -> 9 `i `uc
+-> -> 165 `i `uc
+-> -> 160 `i `uc
+..
+]
+"95
+[v F8048 `Cuc ~T0 @X0 -> 0 `x s rf_modem_agc_control_1 ]
+[i F8048
+:U ..
+-> -> 17 `i `uc
+-> -> 32 `i `uc
+-> -> 1 `i `uc
+-> -> 53 `i `uc
+-> -> 224 `i `uc
+..
+]
+"96
+[v F8049 `Cuc ~T0 @X0 -> 0 `x s rf_modem_agc_window_size_12 ]
+[i F8049
+:U ..
+-> -> 17 `i `uc
+-> -> 32 `i `uc
+-> -> 12 `i `uc
+-> -> 56 `i `uc
+-> -> 17 `i `uc
+-> -> 109 `i `uc
+-> -> 109 `i `uc
+-> -> 0 `i `uc
+-> -> 2 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+-> -> 42 `i `uc
+-> -> 12 `i `uc
+-> -> 164 `i `uc
+-> -> 35 `i `uc
+..
+]
+"97
+[v F8050 `Cuc ~T0 @X0 -> 0 `x s rf_modem_raw_control_10 ]
+[i F8050
+:U ..
+-> -> 17 `i `uc
+-> -> 32 `i `uc
+-> -> 10 `i `uc
+-> -> 69 `i `uc
+-> -> 3 `i `uc
+-> -> 2 `i `uc
+-> -> 255 `i `uc
+-> -> 1 `i `uc
+-> -> 0 `i `uc
+-> -> 255 `i `uc
+-> -> 6 `i `uc
+-> -> 0 `i `uc
+-> -> 24 `i `uc
+-> -> 64 `i `uc
+..
+]
+"98
+[v F8051 `Cuc ~T0 @X0 -> 0 `x s rf_modem_raw_search2_2 ]
+[i F8051
+:U ..
+-> -> 17 `i `uc
+-> -> 32 `i `uc
+-> -> 2 `i `uc
+-> -> 80 `i `uc
+-> -> 132 `i `uc
+-> -> 8 `i `uc
+..
+]
+"99
+[v F8052 `Cuc ~T0 @X0 -> 0 `x s rf_modem_spike_det_2 ]
+[i F8052
+:U ..
+-> -> 17 `i `uc
+-> -> 32 `i `uc
+-> -> 2 `i `uc
+-> -> 84 `i `uc
+-> -> 10 `i `uc
+-> -> 7 `i `uc
+..
+]
+"100
+[v F8053 `Cuc ~T0 @X0 -> 0 `x s rf_modem_rssi_mute_1 ]
+[i F8053
+:U ..
+-> -> 17 `i `uc
+-> -> 32 `i `uc
+-> -> 1 `i `uc
+-> -> 87 `i `uc
+-> -> 0 `i `uc
+..
+]
+"101
+[v F8054 `Cuc ~T0 @X0 -> 0 `x s rf_modem_dsa_ctrl1_5 ]
+[i F8054
+:U ..
+-> -> 17 `i `uc
+-> -> 32 `i `uc
+-> -> 5 `i `uc
+-> -> 91 `i `uc
+-> -> 64 `i `uc
+-> -> 4 `i `uc
+-> -> 22 `i `uc
+-> -> 120 `i `uc
+-> -> 32 `i `uc
+..
+]
+"102
+[v F8055 `Cuc ~T0 @X0 -> 0 `x s rf_modem_chflt_rx1_chflt_coe13_7_0_12 ]
+[i F8055
+:U ..
+-> -> 17 `i `uc
+-> -> 33 `i `uc
+-> -> 12 `i `uc
+-> -> 0 `i `uc
+-> -> 255 `i `uc
+-> -> 186 `i `uc
+-> -> 15 `i `uc
+-> -> 81 `i `uc
+-> -> 207 `i `uc
+-> -> 169 `i `uc
+-> -> 201 `i `uc
+-> -> 252 `i `uc
+-> -> 27 `i `uc
+-> -> 30 `i `uc
+-> -> 15 `i `uc
+-> -> 1 `i `uc
+..
+]
+"103
+[v F8056 `Cuc ~T0 @X0 -> 0 `x s rf_modem_chflt_rx1_chflt_coe1_7_0_12 ]
+[i F8056
+:U ..
+-> -> 17 `i `uc
+-> -> 33 `i `uc
+-> -> 12 `i `uc
+-> -> 12 `i `uc
+-> -> 252 `i `uc
+-> -> 253 `i `uc
+-> -> 21 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+-> -> 15 `i `uc
+-> -> 255 `i `uc
+-> -> 186 `i `uc
+-> -> 15 `i `uc
+-> -> 81 `i `uc
+-> -> 207 `i `uc
+-> -> 169 `i `uc
+..
+]
+"104
+[v F8057 `Cuc ~T0 @X0 -> 0 `x s rf_modem_chflt_rx2_chflt_coe7_7_0_12 ]
+[i F8057
+:U ..
+-> -> 17 `i `uc
+-> -> 33 `i `uc
+-> -> 12 `i `uc
+-> -> 24 `i `uc
+-> -> 201 `i `uc
+-> -> 252 `i `uc
+-> -> 27 `i `uc
+-> -> 30 `i `uc
+-> -> 15 `i `uc
+-> -> 1 `i `uc
+-> -> 252 `i `uc
+-> -> 253 `i `uc
+-> -> 21 `i `uc
+-> -> 255 `i `uc
+-> -> 0 `i `uc
+-> -> 15 `i `uc
+..
+]
+"105
+[v F8058 `Cuc ~T0 @X0 -> 0 `x s rf_pa_mode_4 ]
+[i F8058
+:U ..
+-> -> 17 `i `uc
+-> -> 34 `i `uc
+-> -> 4 `i `uc
+-> -> 0 `i `uc
+-> -> 8 `i `uc
+-> -> 127 `i `uc
+-> -> 0 `i `uc
+-> -> 29 `i `uc
+..
+]
+"106
+[v F8059 `Cuc ~T0 @X0 -> 0 `x s rf_synth_pfdcp_cpff_7 ]
+[i F8059
+:U ..
+-> -> 17 `i `uc
+-> -> 35 `i `uc
+-> -> 7 `i `uc
+-> -> 0 `i `uc
+-> -> 44 `i `uc
+-> -> 14 `i `uc
+-> -> 11 `i `uc
+-> -> 4 `i `uc
+-> -> 12 `i `uc
+-> -> 115 `i `uc
+-> -> 3 `i `uc
+..
+]
+"107
+[v F8060 `Cuc ~T0 @X0 -> 0 `x s rf_match_value_1_12 ]
+[i F8060
+:U ..
+-> -> 17 `i `uc
+-> -> 48 `i `uc
+-> -> 12 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+"108
+[v F8061 `Cuc ~T0 @X0 -> 0 `x s rf_freq_control_inte_8 ]
+[i F8061
+:U ..
+-> -> 17 `i `uc
+-> -> 64 `i `uc
+-> -> 8 `i `uc
+-> -> 0 `i `uc
+-> -> 60 `i `uc
+-> -> 8 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 34 `i `uc
+-> -> 34 `i `uc
+-> -> 32 `i `uc
+-> -> 255 `i `uc
+..
+]
+"111
+[v F8062 `Cuc ~T0 @X0 -> 31 `i s rf_set_properties ]
+[i F8062
+:U ..
+"112
+-> &U F8031 `Cuc
+"113
+-> &U F8032 `Cuc
+"114
+-> &U F8033 `Cuc
+"115
+-> &U F8034 `Cuc
+"116
+-> &U F8035 `Cuc
+"117
+-> &U F8036 `Cuc
+"118
+-> &U F8037 `Cuc
+"119
+-> &U F8038 `Cuc
+"120
+-> &U F8039 `Cuc
+"121
+-> &U F8040 `Cuc
+"122
+-> &U F8041 `Cuc
+"123
+-> &U F8042 `Cuc
+"124
+-> &U F8043 `Cuc
+"125
+-> &U F8044 `Cuc
+"126
+-> &U F8045 `Cuc
+"127
+-> &U F8046 `Cuc
+"128
+-> &U F8047 `Cuc
+"129
+-> &U F8048 `Cuc
+"130
+-> &U F8049 `Cuc
+"131
+-> &U F8050 `Cuc
+"132
+-> &U F8051 `Cuc
+"133
+-> &U F8052 `Cuc
+"134
+-> &U F8053 `Cuc
+"135
+-> &U F8054 `Cuc
+"136
+-> &U F8055 `Cuc
+"137
+-> &U F8056 `Cuc
+"138
+-> &U F8057 `Cuc
+"139
+-> &U F8058 `Cuc
+"140
+-> &U F8059 `Cuc
+"141
+-> &U F8060 `Cuc
+"143
+-> &U F8061 `Cuc
+..
+]
+"149
+[v _timeout_cnter `i ~T0 @X0 1 a ]
+[; ;main.c: 76: static const UINT8 rf_power_up [] = {0x02, 0x01, 0x00, 0x01, 0xC9, 0xC3, 0x80 };
+[; ;main.c: 77: static const UINT8 rf_gpio_pin_cfg [] = {0x13, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+[; ;main.c: 78: static const UINT8 rf_global_xo_tune_2 [] = {0x11, 0x00, 0x02, 0x00, 0x52, 0x40 };
+[; ;main.c: 79: static const UINT8 rf_global_config_1 [] = {0x11, 0x00, 0x01, 0x03, 0x20 };
+[; ;main.c: 80: static const UINT8 rf_int_ctl_enable_1 [] = {0x11, 0x01, 0x01, 0x00, 0x00 };
+[; ;main.c: 81: static const UINT8 rf_frr_ctl_a_mode_4 [] = {0x11, 0x02, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00 };
+[; ;main.c: 82: static const UINT8 rf_preamble_tx_length_9 [] = {0x11, 0x10, 0x09, 0x00, 0x08, 0x14, 0x00, 0x0F, 0x31, 0x00, 0x00, 0x00, 0x00 };
+[; ;main.c: 83: static const UINT8 rf_sync_config_10 [] = {0x11, 0x11, 0x0A, 0x00, 0x09, 0xB4, 0x2B, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+[; ;main.c: 84: static const UINT8 rf_pkt_crc_config_12 [] = {0x11, 0x12, 0x0C, 0x00, 0x04, 0x00, 0x30, 0xFF, 0xFF, 0x20, 0x22, 0x00, 0x00, 0x00, 0x00, 0x30 };
+[; ;main.c: 85: static const UINT8 rf_pkt_rx_threshold_12 [] = {0x11, 0x12, 0x0C, 0x0C, 0x30, 0x00, 0x07, 0x14, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+[; ;main.c: 86: static const UINT8 rf_pkt_field_3_crc_config_12 [] = {0x11, 0x12, 0x0C, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+[; ;main.c: 87: static const UINT8 rf_pkt_rx_field_1_crc_config_12 [] = {0x11, 0x12, 0x0C, 0x24, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+[; ;main.c: 88: static const UINT8 rf_pkt_rx_field_4_crc_config_5 [] = {0x11, 0x12, 0x05, 0x30, 0x00, 0x00, 0x00, 0x00, 0x00 };
+[; ;main.c: 89: static const UINT8 rf_pkt_crc_seed_31_24_4 [] = {0x11, 0x12, 0x04, 0x36, 0x00, 0x00, 0x00, 0x00 };
+[; ;main.c: 90: static const UINT8 rf_modem_mod_type_12 [] = {0x11, 0x20, 0x0C, 0x00, 0x04, 0x00, 0x07, 0x01, 0x86, 0xA0, 0x01, 0xC9, 0xC3, 0x80, 0x00, 0x08 };
+[; ;main.c: 91: static const UINT8 rf_modem_freq_dev_0_1 [] = {0x11, 0x20, 0x01, 0x0C, 0x31 };
+[; ;main.c: 92: static const UINT8 rf_modem_tx_ramp_delay_12 [] = {0x11, 0x20, 0x0C, 0x18, 0x04, 0x00, 0x08, 0x03, 0xC0, 0x00, 0x10, 0x10, 0x00, 0xE8, 0x01, 0xF4 };
+[; ;main.c: 93: static const UINT8 rf_modem_bcr_nco_offset_2_12 [] = {0x11, 0x20, 0x0C, 0x24, 0x01, 0x06, 0x25, 0x00, 0x16, 0x02, 0x02, 0x00, 0x00, 0x12, 0x80, 0x2C };
+[; ;main.c: 94: static const UINT8 rf_modem_afc_limiter_1_3 [] = {0x11, 0x20, 0x03, 0x30, 0x09, 0xA5, 0xA0 };
+[; ;main.c: 95: static const UINT8 rf_modem_agc_control_1 [] = {0x11, 0x20, 0x01, 0x35, 0xE0 };
+[; ;main.c: 96: static const UINT8 rf_modem_agc_window_size_12 [] = {0x11, 0x20, 0x0C, 0x38, 0x11, 0x6D, 0x6D, 0x00, 0x02, 0xFF, 0xFF, 0x00, 0x2A, 0x0C, 0xA4, 0x23 };
+[; ;main.c: 97: static const UINT8 rf_modem_raw_control_10 [] = {0x11, 0x20, 0x0A, 0x45, 0x03, 0x02, 0xFF, 0x01, 0x00, 0xFF, 0x06, 0x00, 0x18, 0x40 };
+[; ;main.c: 98: static const UINT8 rf_modem_raw_search2_2 [] = {0x11, 0x20, 0x02, 0x50, 0x84, 0x08 };
+[; ;main.c: 99: static const UINT8 rf_modem_spike_det_2 [] = {0x11, 0x20, 0x02, 0x54, 0x0A, 0x07 };
+[; ;main.c: 100: static const UINT8 rf_modem_rssi_mute_1 [] = {0x11, 0x20, 0x01, 0x57, 0x00 };
+[; ;main.c: 101: static const UINT8 rf_modem_dsa_ctrl1_5 [] = {0x11, 0x20, 0x05, 0x5B, 0x40, 0x04, 0x16, 0x78, 0x20 };
+[; ;main.c: 102: static const UINT8 rf_modem_chflt_rx1_chflt_coe13_7_0_12[] = {0x11, 0x21, 0x0C, 0x00, 0xFF, 0xBA, 0x0F, 0x51, 0xCF, 0xA9, 0xC9, 0xFC, 0x1B, 0x1E, 0x0F, 0x01 };
+[; ;main.c: 103: static const UINT8 rf_modem_chflt_rx1_chflt_coe1_7_0_12 [] = {0x11, 0x21, 0x0C, 0x0C, 0xFC, 0xFD, 0x15, 0xFF, 0x00, 0x0F, 0xFF, 0xBA, 0x0F, 0x51, 0xCF, 0xA9 };
+[; ;main.c: 104: static const UINT8 rf_modem_chflt_rx2_chflt_coe7_7_0_12 [] = {0x11, 0x21, 0x0C, 0x18, 0xC9, 0xFC, 0x1B, 0x1E, 0x0F, 0x01, 0xFC, 0xFD, 0x15, 0xFF, 0x00, 0x0F };
+[; ;main.c: 105: static const UINT8 rf_pa_mode_4 [] = {0x11, 0x22, 0x04, 0x00, 0x08, 0x7F, 0x00, 0x1D };
+[; ;main.c: 106: static const UINT8 rf_synth_pfdcp_cpff_7 [] = {0x11, 0x23, 0x07, 0x00, 0x2C, 0x0E, 0x0B, 0x04, 0x0C, 0x73, 0x03 };
+[; ;main.c: 107: static const UINT8 rf_match_value_1_12 [] = {0x11, 0x30, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+[; ;main.c: 108: static const UINT8 rf_freq_control_inte_8 [] = {0x11, 0x40, 0x08, 0x00, 0x3C, 0x08, 0x00, 0x00, 0x22, 0x22, 0x20, 0xFF };
+[; ;main.c: 111: static const UINT8 rf_set_properties[31]= {
+[; ;main.c: 112: rf_global_xo_tune_2 ,
+[; ;main.c: 113: rf_global_config_1 ,
+[; ;main.c: 114: rf_int_ctl_enable_1 ,
+[; ;main.c: 115: rf_frr_ctl_a_mode_4 ,
+[; ;main.c: 116: rf_preamble_tx_length_9 ,
+[; ;main.c: 117: rf_sync_config_10 ,
+[; ;main.c: 118: rf_pkt_crc_config_12 ,
+[; ;main.c: 119: rf_pkt_rx_threshold_12 ,
+[; ;main.c: 120: rf_pkt_field_3_crc_config_12 ,
+[; ;main.c: 121: rf_pkt_rx_field_1_crc_config_12 ,
+[; ;main.c: 122: rf_pkt_rx_field_4_crc_config_5 ,
+[; ;main.c: 123: rf_pkt_crc_seed_31_24_4 ,
+[; ;main.c: 124: rf_modem_mod_type_12 ,
+[; ;main.c: 125: rf_modem_freq_dev_0_1 ,
+[; ;main.c: 126: rf_modem_tx_ramp_delay_12 ,
+[; ;main.c: 127: rf_modem_bcr_nco_offset_2_12 ,
+[; ;main.c: 128: rf_modem_afc_limiter_1_3 ,
+[; ;main.c: 129: rf_modem_agc_control_1 ,
+[; ;main.c: 130: rf_modem_agc_window_size_12 ,
+[; ;main.c: 131: rf_modem_raw_control_10 ,
+[; ;main.c: 132: rf_modem_raw_search2_2 ,
+[; ;main.c: 133: rf_modem_spike_det_2 ,
+[; ;main.c: 134: rf_modem_rssi_mute_1 ,
+[; ;main.c: 135: rf_modem_dsa_ctrl1_5 ,
+[; ;main.c: 136: rf_modem_chflt_rx1_chflt_coe13_7_0_12,
+[; ;main.c: 137: rf_modem_chflt_rx1_chflt_coe1_7_0_12 ,
+[; ;main.c: 138: rf_modem_chflt_rx2_chflt_coe7_7_0_12 ,
+[; ;main.c: 139: rf_pa_mode_4 ,
+[; ;main.c: 140: rf_synth_pfdcp_cpff_7 ,
+[; ;main.c: 141: rf_match_value_1_12 ,
+[; ;main.c: 142: rf_freq_control_inte_8
+[; ;main.c: 143: };
+[; ;main.c: 149: int timeout_cnter;
+[; ;main.c: 150: while (PORTCbits.RC4 == 0) {
+"150
+[e $U 964  ]
 [e :U 965 ]
-[; ;main.c: 27: {
-"27
 {
-[; ;main.c: 28: RC7 = 0;
-"28
-[e = _RC7 -> -> 0 `i `b ]
-[; ;main.c: 29: _delay((unsigned long)((1)*(8000000/4000.0)));
-"29
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 31: write_spi_data(PORTB);
-"31
-[e ( _write_spi_data (1 -> _PORTB `i ]
-[; ;main.c: 32: PORTB = read_spi_data();
-"32
-[e = _PORTB -> ( _read_spi_data ..  `uc ]
-[; ;main.c: 34: _delay((unsigned long)((1)*(8000000/4000.0)));
-"34
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 35: RC7 = 1;
-"35
-[e = _RC7 -> -> 1 `i `b ]
-[; ;main.c: 37: _delay((unsigned long)((100)*(8000000/4000.0)));
-"37
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"38
+[; ;main.c: 152: timeout_cnter ++;
+"152
+[e ++ _timeout_cnter -> 1 `i ]
+[; ;main.c: 153: if (timeout_cnter == 10000) {
+"153
+[e $ ! == _timeout_cnter -> 10000 `i 967  ]
+{
+[; ;main.c: 154: break;
+"154
+[e $U 966  ]
+"155
+}
+[e :U 967 ]
+"156
 }
 [e :U 964 ]
-"26
-[e $U 965  ]
+"150
+[e $ == -> . . _PORTCbits 0 4 `i -> 0 `i 965  ]
 [e :U 966 ]
-[; ;main.c: 38: }
-[; ;main.c: 40: return;
-"40
+[; ;main.c: 155: }
+[; ;main.c: 156: }
+[; ;main.c: 160: write_spi_fw_cmd(rf_power_up);
+"160
+[e ( _write_spi_fw_cmd (1 -> &U F8029 `*uc ]
+[; ;main.c: 161: read_fw_response(11);
+"161
+[e ( _read_fw_response (1 -> 11 `i ]
+"165
+[v _timeout `uc ~T0 @X0 1 a ]
+[; ;main.c: 165: BOOL timeout = 0;
+[e = _timeout -> -> 0 `i `uc ]
+"166
+[v _nIRQ_unreliable `uc ~T0 @X0 1 a ]
+[; ;main.c: 166: BOOL nIRQ_unreliable = 0;
+[e = _nIRQ_unreliable -> -> 0 `i `uc ]
+"167
+[v _GPIO_1_unreliable `uc ~T0 @X0 1 a ]
+[; ;main.c: 167: BOOL GPIO_1_unreliable = 0;
+[e = _GPIO_1_unreliable -> -> 0 `i `uc ]
+"168
+[v _SPI_CTS_unreliable `uc ~T0 @X0 1 a ]
+[; ;main.c: 168: BOOL SPI_CTS_unreliable = 0;
+[e = _SPI_CTS_unreliable -> -> 0 `i `uc ]
+"170
+[v _glbl_reset `uc ~T0 @X0 1 a ]
+[; ;main.c: 170: BOOL glbl_reset = 0;
+[e = _glbl_reset -> -> 0 `i `uc ]
+[; ;main.c: 173: if (PORTAbits.RA2 == 1) {
+"173
+[e $ ! == -> . . _PORTAbits 0 2 `i -> 1 `i 968  ]
+{
+[; ;main.c: 175: nIRQ_unreliable = 1;
+"175
+[e = _nIRQ_unreliable -> -> 1 `i `uc ]
+"176
+}
+[e :U 968 ]
+[; ;main.c: 176: }
+[; ;main.c: 180: while(1) {
+"180
+[e :U 970 ]
+{
+[; ;main.c: 181: if (nIRQ_unreliable == 1 && GPIO_1_unreliable == 1 && SPI_CTS_unreliable == 1) {
+"181
+[e $ ! && && == -> _nIRQ_unreliable `i -> 1 `i == -> _GPIO_1_unreliable `i -> 1 `i == -> _SPI_CTS_unreliable `i -> 1 `i 972  ]
+{
+[; ;main.c: 182: glbl_reset = 1;
+"182
+[e = _glbl_reset -> -> 1 `i `uc ]
+[; ;main.c: 183: break;
+"183
+[e $U 971  ]
+"185
+}
+[e :U 972 ]
+[; ;main.c: 185: }
+[; ;main.c: 187: if (timeout == 1) {
+"187
+[e $ ! == -> _timeout `i -> 1 `i 973  ]
+{
+[; ;main.c: 188: glbl_reset = 1;
+"188
+[e = _glbl_reset -> -> 1 `i `uc ]
+[; ;main.c: 189: break;
+"189
+[e $U 971  ]
+"191
+}
+[e :U 973 ]
+[; ;main.c: 191: }
+[; ;main.c: 196: write_spi_fw_cmd(0x23);
+"196
+[e ( _write_spi_fw_cmd (1 -> -> 35 `i `*uc ]
+[; ;main.c: 197: read_fw_response(10);
+"197
+[e ( _read_fw_response (1 -> 10 `i ]
+[; ;main.c: 199: if(nIRQ_unreliable == 0 && PORTAbits.RA2 == 1) {
+"199
+[e $ ! && == -> _nIRQ_unreliable `i -> 0 `i == -> . . _PORTAbits 0 2 `i -> 1 `i 974  ]
+{
+[; ;main.c: 200: break;
+"200
+[e $U 971  ]
+"202
+}
+[e :U 974 ]
+[; ;main.c: 202: }
+[; ;main.c: 208: if (GPIO_1_unreliable == 0 && PORTCbits.RC4 == 1) {
+"208
+[e $ ! && == -> _GPIO_1_unreliable `i -> 0 `i == -> . . _PORTCbits 0 4 `i -> 1 `i 975  ]
+{
+[; ;main.c: 209: break;
+"209
+[e $U 971  ]
+"211
+}
+[e :U 975 ]
+"212
+}
+[e :U 969 ]
+"180
+[e $U 970  ]
+[e :U 971 ]
+[; ;main.c: 211: }
+[; ;main.c: 212: }
+[; ;main.c: 216: while (SSPBUF != dummy) {
+"216
+[e $U 976  ]
+[e :U 977 ]
+{
+[; ;main.c: 217: read_spi_buffer();
+"217
+[e ( _read_spi_buffer ..  ]
+"218
+}
+[e :U 976 ]
+"216
+[e $ != -> _SSPBUF `i -> _dummy `i 977  ]
+[e :U 978 ]
+[; ;main.c: 218: }
+[; ;main.c: 224: if (glbl_reset == 0) {
+"224
+[e $ ! == -> _glbl_reset `i -> 0 `i 979  ]
+{
+[; ;main.c: 227: write_spi_fw_cmd(rf_gpio_pin_cfg);
+"227
+[e ( _write_spi_fw_cmd (1 -> &U F8030 `*uc ]
+[; ;main.c: 228: read_fw_response(8);
+"228
+[e ( _read_fw_response (1 -> 8 `i ]
+[; ;main.c: 231: for (int i=0; i<sizeof(rf_set_properties); i++) {
+"231
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < -> _i `ui -> # F8062 `ui 980  ]
+[e $U 981  ]
+[e :U 980 ]
+{
+[; ;main.c: 232: write_spi_fw_cmd(rf_set_properties[i]);
+"232
+[e ( _write_spi_fw_cmd (1 -> *U + &U F8062 * -> -> _i `ui `ux -> -> # *U &U F8062 `ui `ux `*uc ]
+"233
+[v _cts_ready `uc ~T0 @X0 1 a ]
+[; ;main.c: 233: BOOL cts_ready = 0;
+[e = _cts_ready -> -> 0 `i `uc ]
+[; ;main.c: 234: while (cts_ready == 0) {
+"234
+[e $U 983  ]
+[e :U 984 ]
+{
+[; ;main.c: 235: cts_ready = wait_for_cts();
+"235
+[e = _cts_ready ( _wait_for_cts ..  ]
+"236
+}
+[e :U 983 ]
+"234
+[e $ == -> _cts_ready `i -> 0 `i 984  ]
+[e :U 985 ]
+"238
+}
+"231
+[e ++ _i -> 1 `i ]
+[e $ < -> _i `ui -> # F8062 `ui 980  ]
+[e :U 981 ]
+"238
+}
+"241
+[v _delay `i ~T0 @X0 1 a ]
+[; ;main.c: 236: }
+[; ;main.c: 238: }
+[; ;main.c: 241: int delay = 100;
+[e = _delay -> 100 `i ]
+[; ;main.c: 242: while(delay > 0) {
+"242
+[e $U 986  ]
+[e :U 987 ]
+{
+[; ;main.c: 243: delay --;
+"243
+[e -- _delay -> 1 `i ]
+"244
+}
+[e :U 986 ]
+"242
+[e $ > _delay -> 0 `i 987  ]
+[e :U 988 ]
+[; ;main.c: 244: };
+[; ;main.c: 247: while(1) {
+"247
+[e :U 990 ]
+{
+[; ;main.c: 249: write_spi_buffer(0x00);
+"249
+[e ( _write_spi_buffer (1 -> -> 0 `i `uc ]
+[; ;main.c: 250: write_spi_buffer(0x44);
+"250
+[e ( _write_spi_buffer (1 -> -> 68 `i `uc ]
+[; ;main.c: 251: write_spi_buffer(0x88);
+"251
+[e ( _write_spi_buffer (1 -> -> 136 `i `uc ]
+[; ;main.c: 252: write_spi_buffer(0xcc);
+"252
+[e ( _write_spi_buffer (1 -> -> 204 `i `uc ]
+"253
+}
+[e :U 989 ]
+"247
+[e $U 990  ]
+[e :U 991 ]
+"256
+}
+[e :U 979 ]
+[; ;main.c: 253: }
+[; ;main.c: 256: }
+[; ;main.c: 261: return;
+"261
 [e $UE 963  ]
-[; ;main.c: 42: }
-"42
+[; ;main.c: 263: }
+"263
 [e :UE 963 ]
 }

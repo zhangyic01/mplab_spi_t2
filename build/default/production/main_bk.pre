@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "main_bk.c"
 
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\__size_t.h"
 typedef unsigned size_t;
@@ -10120,8 +10120,8 @@ extern BOOL wait_for_cts();
 extern UINT8 read_spi_buffer();
 extern UINT8* read_fw_response(int num_bytes);
 
-# 29 "main.c"
-void main(void) {
+# 29 "main_bk.c"
+void main_bk(void) {
 
 # 44
 init_spi (SPI_MASTER,SPI_POSEDGE,SPI_M_FOSC_DIV4,SPI_CLK_LOW_IN_IDLE, 1);
@@ -10143,8 +10143,7 @@ TRISBbits.TRISB7 = 1;
 TRISCbits.TRISC4 = 1;
 TRISAbits.TRISA2 = 1;
 
-
-
+# 81
 static const UINT8 rf_power_up [] = {0x02, 0x01, 0x00, 0x01, 0xC9, 0xC3, 0x80 };
 static const UINT8 rf_gpio_pin_cfg [] = {0x13, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 static const UINT8 rf_global_xo_tune_2 [] = {0x11, 0x00, 0x02, 0x00, 0x52, 0x40 };
@@ -10179,8 +10178,8 @@ static const UINT8 rf_synth_pfdcp_cpff_7 [] = {0x11, 0x23, 0x07, 0x00, 0x2C, 0x0
 static const UINT8 rf_match_value_1_12 [] = {0x11, 0x30, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 static const UINT8 rf_freq_control_inte_8 [] = {0x11, 0x40, 0x08, 0x00, 0x3C, 0x08, 0x00, 0x00, 0x22, 0x22, 0x20, 0xFF };
 
-
-static const UINT8 rf_set_properties[31]= {
+static const UINT8 rf_confg[32]= {
+rf_gpio_pin_cfg ,
 rf_global_xo_tune_2 ,
 rf_global_config_1 ,
 rf_int_ctl_enable_1 ,
@@ -10214,7 +10213,7 @@ rf_match_value_1_12 ,
 rf_freq_control_inte_8
 };
 
-# 149
+# 154
 int timeout_cnter;
 while (PORTCbits.RC4 == 0) {
 
@@ -10227,8 +10226,6 @@ break;
 
 
 write_spi_fw_cmd(rf_power_up);
-read_fw_response(11);
-
 
 
 BOOL timeout = 0;
@@ -10263,14 +10260,12 @@ break;
 
 
 write_spi_fw_cmd(0x23);
-read_fw_response(10);
-
 if(nIRQ_unreliable == 0 && PORTAbits.RA2 == 1) {
 break;
 
 }
 
-# 208
+# 209
 if (GPIO_1_unreliable == 0 && PORTCbits.RC4 == 1) {
 break;
 
@@ -10283,44 +10278,21 @@ while (SSPBUF != dummy) {
 read_spi_buffer();
 }
 
-# 224
+# 225
 if (glbl_reset == 0) {
 
 
-write_spi_fw_cmd(rf_gpio_pin_cfg);
-read_fw_response(8);
+for (int i=0;i<sizeof(rf_confg);i++) {
+write_spi_fw_cmd(rf_confg[i]);
 
 
-for (int i=0; i<sizeof(rf_set_properties); i++) {
-write_spi_fw_cmd(rf_set_properties[i]);
-BOOL cts_ready = 0;
-while (cts_ready == 0) {
-cts_ready = wait_for_cts();
+read_fw_response(1);
 }
 
+# 243
 }
 
-
-int delay = 100;
-while(delay > 0) {
-delay --;
-};
-
-
-while(1) {
-
-write_spi_buffer(0x00);
-write_spi_buffer(0x44);
-write_spi_buffer(0x88);
-write_spi_buffer(0xcc);
-}
-
-
-}
-
-
-
-
+# 272
 return;
 
 }

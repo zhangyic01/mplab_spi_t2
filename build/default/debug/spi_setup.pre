@@ -1,142 +1,5 @@
 
-# 1 "main.c"
-
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\__size_t.h"
-typedef unsigned size_t;
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdarg.h"
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 43 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdio.h"
-struct __prbuf
-{
-char * ptr;
-void (* func)(char);
-};
-
-# 29 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\errno.h"
-extern int errno;
-
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\conio.h"
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 23
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 88 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 180
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdlib.h"
-typedef unsigned short wchar_t;
-
-# 15
-typedef struct {
-int rem;
-int quot;
-} div_t;
-typedef struct {
-unsigned rem;
-unsigned quot;
-} udiv_t;
-typedef struct {
-long quot;
-long rem;
-} ldiv_t;
-typedef struct {
-unsigned long quot;
-unsigned long rem;
-} uldiv_t;
-
-# 53
-extern double atof(const char *);
-extern double strtod(const char *, const char **);
-extern int atoi(const char *);
-extern unsigned xtoi(const char *);
-extern long atol(const char *);
-extern long strtol(const char *, char **, int);
-
-extern int rand(void);
-extern void srand(unsigned int);
-extern void * calloc(size_t, size_t);
-extern div_t div(int numer, int denom);
-extern udiv_t udiv(unsigned numer, unsigned denom);
-extern ldiv_t ldiv(long numer, long denom);
-extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-extern unsigned int _rotl(unsigned int value, unsigned int shift);
-extern unsigned int _rotr(unsigned int value, unsigned int shift);
-
-
-
-
-extern void * malloc(size_t);
-extern void free(void *);
-extern void * realloc(void *, size_t);
-
-
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\xc8debug.h"
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-
-# 86 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdlib.h"
-extern int atexit(void (*)(void));
-extern char * getenv(const char *);
-extern char ** environ;
-extern int system(char *);
-extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-extern int abs(int);
-extern long labs(long);
-
-extern char * itoa(char * buf, int val, int base);
-extern char * utoa(char * buf, unsigned val, int base);
-
-
-
-
-extern char * ltoa(char * buf, long val, int base);
-extern char * ultoa(char * buf, unsigned long val, int base);
-
-extern char * ftoa(float f, int * status);
+# 1 "spi_setup.c"
 
 
 # 35 "pic16F18345_config.h"
@@ -169,6 +32,11 @@ extern char * ftoa(float f, int * status);
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
+
+
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\xc8debug.h"
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
 
 # 50 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f18345.h"
 extern volatile unsigned char INDF0 @ 0x000;
@@ -10070,13 +9938,6 @@ extern __bit __powerdown;
 extern __bit __timeout;
 
 # 30 "spi.h"
-typedef unsigned char UINT8;
-typedef signed char INT8;
-typedef unsigned char BOOL;
-
-UINT8 dummy = 0xff;
-
-
 typedef enum
 {
 SPI_MASTER = 1,
@@ -10110,217 +9971,38 @@ SPI_CLK_LOW_IN_IDLE = 0
 
 
 extern void init_spi(spi_smp_t spi_mode, spi_cke_t spi_clk_edge, spi_sspm_t clk_cfg, spi_ckp_t clk_idle_cfg, int sspen);
+extern void write_spi_data(int dat);
+extern unsigned read_spi_data_rdy();
+extern int read_spi_data();
 
+# 16 "spi_setup.c"
+void init_spi(spi_smp_t spi_mode, spi_cke_t spi_clk_edge, spi_sspm_t clk_cfg, spi_ckp_t clk_idle_cfg, int sspen) {
 
-extern UINT8 write_spi_buffer(UINT8 data);
-extern void write_spi_fw_cmd(UINT8 *dat);
+SSPSTATbits.SMP = spi_mode;
+SSPSTATbits.CKE = spi_clk_edge;
 
-extern BOOL wait_for_cts();
-
-extern UINT8 read_spi_buffer();
-extern UINT8* read_fw_response(int num_bytes);
-
-# 29 "main.c"
-void main(void) {
-
-# 44
-init_spi (SPI_MASTER,SPI_POSEDGE,SPI_M_FOSC_DIV4,SPI_CLK_LOW_IN_IDLE, 1);
-
-
-
-TRISCbits.TRISC0 = 0;
-TRISCbits.TRISC1 = 1;
-TRISCbits.TRISC2 = 0;
-TRISCbits.TRISC3 = 0;
-
-
-TRISBbits.TRISB4 = 1;
-TRISBbits.TRISB5 = 1;
-TRISBbits.TRISB6 = 0;
-TRISBbits.TRISB7 = 1;
-
-# 71
-TRISCbits.TRISC4 = 1;
-TRISAbits.TRISA2 = 1;
-
-
-
-static const UINT8 rf_power_up [] = {0x02, 0x01, 0x00, 0x01, 0xC9, 0xC3, 0x80 };
-static const UINT8 rf_gpio_pin_cfg [] = {0x13, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-static const UINT8 rf_global_xo_tune_2 [] = {0x11, 0x00, 0x02, 0x00, 0x52, 0x40 };
-static const UINT8 rf_global_config_1 [] = {0x11, 0x00, 0x01, 0x03, 0x20 };
-static const UINT8 rf_int_ctl_enable_1 [] = {0x11, 0x01, 0x01, 0x00, 0x00 };
-static const UINT8 rf_frr_ctl_a_mode_4 [] = {0x11, 0x02, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00 };
-static const UINT8 rf_preamble_tx_length_9 [] = {0x11, 0x10, 0x09, 0x00, 0x08, 0x14, 0x00, 0x0F, 0x31, 0x00, 0x00, 0x00, 0x00 };
-static const UINT8 rf_sync_config_10 [] = {0x11, 0x11, 0x0A, 0x00, 0x09, 0xB4, 0x2B, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-static const UINT8 rf_pkt_crc_config_12 [] = {0x11, 0x12, 0x0C, 0x00, 0x04, 0x00, 0x30, 0xFF, 0xFF, 0x20, 0x22, 0x00, 0x00, 0x00, 0x00, 0x30 };
-static const UINT8 rf_pkt_rx_threshold_12 [] = {0x11, 0x12, 0x0C, 0x0C, 0x30, 0x00, 0x07, 0x14, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-static const UINT8 rf_pkt_field_3_crc_config_12 [] = {0x11, 0x12, 0x0C, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-static const UINT8 rf_pkt_rx_field_1_crc_config_12 [] = {0x11, 0x12, 0x0C, 0x24, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-static const UINT8 rf_pkt_rx_field_4_crc_config_5 [] = {0x11, 0x12, 0x05, 0x30, 0x00, 0x00, 0x00, 0x00, 0x00 };
-static const UINT8 rf_pkt_crc_seed_31_24_4 [] = {0x11, 0x12, 0x04, 0x36, 0x00, 0x00, 0x00, 0x00 };
-static const UINT8 rf_modem_mod_type_12 [] = {0x11, 0x20, 0x0C, 0x00, 0x04, 0x00, 0x07, 0x01, 0x86, 0xA0, 0x01, 0xC9, 0xC3, 0x80, 0x00, 0x08 };
-static const UINT8 rf_modem_freq_dev_0_1 [] = {0x11, 0x20, 0x01, 0x0C, 0x31 };
-static const UINT8 rf_modem_tx_ramp_delay_12 [] = {0x11, 0x20, 0x0C, 0x18, 0x04, 0x00, 0x08, 0x03, 0xC0, 0x00, 0x10, 0x10, 0x00, 0xE8, 0x01, 0xF4 };
-static const UINT8 rf_modem_bcr_nco_offset_2_12 [] = {0x11, 0x20, 0x0C, 0x24, 0x01, 0x06, 0x25, 0x00, 0x16, 0x02, 0x02, 0x00, 0x00, 0x12, 0x80, 0x2C };
-static const UINT8 rf_modem_afc_limiter_1_3 [] = {0x11, 0x20, 0x03, 0x30, 0x09, 0xA5, 0xA0 };
-static const UINT8 rf_modem_agc_control_1 [] = {0x11, 0x20, 0x01, 0x35, 0xE0 };
-static const UINT8 rf_modem_agc_window_size_12 [] = {0x11, 0x20, 0x0C, 0x38, 0x11, 0x6D, 0x6D, 0x00, 0x02, 0xFF, 0xFF, 0x00, 0x2A, 0x0C, 0xA4, 0x23 };
-static const UINT8 rf_modem_raw_control_10 [] = {0x11, 0x20, 0x0A, 0x45, 0x03, 0x02, 0xFF, 0x01, 0x00, 0xFF, 0x06, 0x00, 0x18, 0x40 };
-static const UINT8 rf_modem_raw_search2_2 [] = {0x11, 0x20, 0x02, 0x50, 0x84, 0x08 };
-static const UINT8 rf_modem_spike_det_2 [] = {0x11, 0x20, 0x02, 0x54, 0x0A, 0x07 };
-static const UINT8 rf_modem_rssi_mute_1 [] = {0x11, 0x20, 0x01, 0x57, 0x00 };
-static const UINT8 rf_modem_dsa_ctrl1_5 [] = {0x11, 0x20, 0x05, 0x5B, 0x40, 0x04, 0x16, 0x78, 0x20 };
-static const UINT8 rf_modem_chflt_rx1_chflt_coe13_7_0_12[] = {0x11, 0x21, 0x0C, 0x00, 0xFF, 0xBA, 0x0F, 0x51, 0xCF, 0xA9, 0xC9, 0xFC, 0x1B, 0x1E, 0x0F, 0x01 };
-static const UINT8 rf_modem_chflt_rx1_chflt_coe1_7_0_12 [] = {0x11, 0x21, 0x0C, 0x0C, 0xFC, 0xFD, 0x15, 0xFF, 0x00, 0x0F, 0xFF, 0xBA, 0x0F, 0x51, 0xCF, 0xA9 };
-static const UINT8 rf_modem_chflt_rx2_chflt_coe7_7_0_12 [] = {0x11, 0x21, 0x0C, 0x18, 0xC9, 0xFC, 0x1B, 0x1E, 0x0F, 0x01, 0xFC, 0xFD, 0x15, 0xFF, 0x00, 0x0F };
-static const UINT8 rf_pa_mode_4 [] = {0x11, 0x22, 0x04, 0x00, 0x08, 0x7F, 0x00, 0x1D };
-static const UINT8 rf_synth_pfdcp_cpff_7 [] = {0x11, 0x23, 0x07, 0x00, 0x2C, 0x0E, 0x0B, 0x04, 0x0C, 0x73, 0x03 };
-static const UINT8 rf_match_value_1_12 [] = {0x11, 0x30, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-static const UINT8 rf_freq_control_inte_8 [] = {0x11, 0x40, 0x08, 0x00, 0x3C, 0x08, 0x00, 0x00, 0x22, 0x22, 0x20, 0xFF };
-
-
-static const UINT8 rf_set_properties[31]= {
-rf_global_xo_tune_2 ,
-rf_global_config_1 ,
-rf_int_ctl_enable_1 ,
-rf_frr_ctl_a_mode_4 ,
-rf_preamble_tx_length_9 ,
-rf_sync_config_10 ,
-rf_pkt_crc_config_12 ,
-rf_pkt_rx_threshold_12 ,
-rf_pkt_field_3_crc_config_12 ,
-rf_pkt_rx_field_1_crc_config_12 ,
-rf_pkt_rx_field_4_crc_config_5 ,
-rf_pkt_crc_seed_31_24_4 ,
-rf_modem_mod_type_12 ,
-rf_modem_freq_dev_0_1 ,
-rf_modem_tx_ramp_delay_12 ,
-rf_modem_bcr_nco_offset_2_12 ,
-rf_modem_afc_limiter_1_3 ,
-rf_modem_agc_control_1 ,
-rf_modem_agc_window_size_12 ,
-rf_modem_raw_control_10 ,
-rf_modem_raw_search2_2 ,
-rf_modem_spike_det_2 ,
-rf_modem_rssi_mute_1 ,
-rf_modem_dsa_ctrl1_5 ,
-rf_modem_chflt_rx1_chflt_coe13_7_0_12,
-rf_modem_chflt_rx1_chflt_coe1_7_0_12 ,
-rf_modem_chflt_rx2_chflt_coe7_7_0_12 ,
-rf_pa_mode_4 ,
-rf_synth_pfdcp_cpff_7 ,
-rf_match_value_1_12 ,
-rf_freq_control_inte_8
-};
-
-# 149
-int timeout_cnter;
-while (PORTCbits.RC4 == 0) {
-
-timeout_cnter ++;
-if (timeout_cnter == 10000) {
-break;
-}
-}
-
-
-
-write_spi_fw_cmd(rf_power_up);
-read_fw_response(11);
-
-
-
-BOOL timeout = 0;
-BOOL nIRQ_unreliable = 0;
-BOOL GPIO_1_unreliable = 0;
-BOOL SPI_CTS_unreliable = 0;
-
-BOOL glbl_reset = 0;
-
-
-if (PORTAbits.RA2 == 1) {
-
-nIRQ_unreliable = 1;
-}
-
-
-
-while(1) {
-if (nIRQ_unreliable == 1 && GPIO_1_unreliable == 1 && SPI_CTS_unreliable == 1) {
-glbl_reset = 1;
-break;
-
-}
-
-if (timeout == 1) {
-glbl_reset = 1;
-break;
+SSPCONbits.SSPM = clk_cfg;
+SSPCONbits.CKP = clk_idle_cfg;
+SSPCONbits.SSPEN = sspen;
 
 }
 
 
-
-
-write_spi_fw_cmd(0x23);
-read_fw_response(10);
-
-if(nIRQ_unreliable == 0 && PORTAbits.RA2 == 1) {
-break;
-
+void write_spi_data(int dat){
+SSPBUF = dat;
 }
-
-# 208
-if (GPIO_1_unreliable == 0 && PORTCbits.RC4 == 1) {
-break;
-
+unsigned read_spi_data_rdy(){
+if (SSPSTATbits.BF) {
+return 1;
+} else {
+return 0;
 }
 }
 
+int read_spi_data(){
 
 
-while (SSPBUF != dummy) {
-read_spi_buffer();
-}
+while(!read_spi_data);
 
-# 224
-if (glbl_reset == 0) {
-
-
-write_spi_fw_cmd(rf_gpio_pin_cfg);
-read_fw_response(8);
-
-
-for (int i=0; i<sizeof(rf_set_properties); i++) {
-write_spi_fw_cmd(rf_set_properties[i]);
-BOOL cts_ready = 0;
-while (cts_ready == 0) {
-cts_ready = wait_for_cts();
-}
-
-}
-
-
-int delay = 100;
-while(delay > 0) {
-delay --;
-};
-
-
-while(1) {
-
-write_spi_buffer(0x00);
-write_spi_buffer(0x44);
-write_spi_buffer(0x88);
-write_spi_buffer(0xcc);
-}
-
-
-}
-
-
-
-
-return;
-
+return(SSPBUF);
 }

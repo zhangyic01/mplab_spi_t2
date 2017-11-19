@@ -9938,6 +9938,13 @@ extern __bit __powerdown;
 extern __bit __timeout;
 
 # 30 "spi.h"
+typedef unsigned char UINT8;
+typedef signed char INT8;
+typedef unsigned char BOOL;
+
+UINT8 dummy = 0xff;
+
+
 typedef enum
 {
 SPI_MASTER = 1,
@@ -9971,38 +9978,91 @@ SPI_CLK_LOW_IN_IDLE = 0
 
 
 extern void init_spi(spi_smp_t spi_mode, spi_cke_t spi_clk_edge, spi_sspm_t clk_cfg, spi_ckp_t clk_idle_cfg, int sspen);
-extern void write_spi_data(int dat);
-extern unsigned read_spi_data_rdy();
-extern int read_spi_data();
 
-# 16 "spi_setup.c"
+
+extern UINT8 write_spi_buffer(UINT8 data);
+extern void write_spi_fw_cmd(UINT8 *dat);
+
+extern BOOL wait_for_cts();
+
+extern UINT8 read_spi_buffer();
+extern UINT8* read_fw_response(int num_bytes);
+
+# 23 "spi_setup.c"
 void init_spi(spi_smp_t spi_mode, spi_cke_t spi_clk_edge, spi_sspm_t clk_cfg, spi_ckp_t clk_idle_cfg, int sspen) {
+
+
 
 SSPSTATbits.SMP = spi_mode;
 SSPSTATbits.CKE = spi_clk_edge;
 
-SSPCONbits.SSPM = clk_cfg;
-SSPCONbits.CKP = clk_idle_cfg;
-SSPCONbits.SSPEN = sspen;
+SSPCON1bits.SSPM = clk_cfg;
+SSPCON1bits.CKP = clk_idle_cfg;
+SSPCON1bits.SSPEN = sspen;
 
 }
 
 
-void write_spi_data(int dat){
-SSPBUF = dat;
+UINT8 write_spi_buffer(UINT8 data){
+SSP1CON1bits.WCOL = 0;
+SSPBUF = data;
+while (SSP1STATbits.BF == 1) {};
+return (SSPBUF);
 }
-unsigned read_spi_data_rdy(){
-if (SSPSTATbits.BF) {
-return 1;
-} else {
-return 0;
+
+
+
+
+void write_spi_fw_cmd(UINT8 *dat){
+
+for (int i=0; i<sizeof(dat); i++) {
+write_spi_buffer(dat[i]);
 }
 }
 
-int read_spi_data(){
 
+UINT8 read_spi_buffer(){
 
-while(!read_spi_data);
+# 65
+write_spi_fw_cmd(dummy);
+while(!SSPSTATbits.BF);
 
 return(SSPBUF);
+}
+
+
+
+BOOL wait_for_cts() {
+
+
+UINT8 read_cmd_buff = 0x44;
+UINT8 cts = 0;
+
+do {
+write_spi_buffer(read_cmd_buff);
+cts = read_spi_buffer();
+} while(cts != 0xFF);
+
+
+
+return 1;
+}
+
+UINT8* read_fw_response(int num_bytes) {
+
+UINT8 resp[16];
+
+BOOL cts_ready;
+
+cts_ready = wait_for_cts();
+
+if (cts_ready) {
+
+for(int i=0;i<num_bytes;i++) {
+write_spi_buffer(dummy);
+resp[i] = read_spi_buffer();
+}
+}
+
+return *resp;
 }

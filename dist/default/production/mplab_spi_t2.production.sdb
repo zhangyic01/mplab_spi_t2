@@ -3,16 +3,16 @@
 [d edition pro ]
 [d chip 16F18345 ]
 [d frameptr 6 ]
-"16 C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
-[e E7988 . `uc
+"23 C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+[e E7811 . `uc
 SPI_MASTER 1
 SPI_SLAVE 0
 ]
-[e E7992 . `uc
+[e E7815 . `uc
 SPI_POSEDGE 0
 SPI_NEGEDGE 1
 ]
-[e E7996 . `ui
+[e E7819 . `ui
 SPI_M_T2_DIV2 9
 SPI_M_FOSC_DIV64 8
 SPI_M_FOSC_DIV16 1
@@ -21,20 +21,20 @@ SPI_S_IN_DIS 65
 SPI_S_IN_EN 64
 SPI_M_FOSC_CUST 1010
 ]
-[e E8005 . `uc
+[e E7828 . `uc
 SPI_CLK_HIGH_IN_IDLE 1
 SPI_CLK_LOW_IN_IDLE 0
 ]
-"16 C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
-[e E7807 . `uc
+"44 C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
+[e E7992 . `uc
 SPI_MASTER 1
 SPI_SLAVE 0
 ]
-[e E7811 . `uc
+[e E7996 . `uc
 SPI_POSEDGE 0
 SPI_NEGEDGE 1
 ]
-[e E7815 . `ui
+[e E8000 . `ui
 SPI_M_T2_DIV2 9
 SPI_M_FOSC_DIV64 8
 SPI_M_FOSC_DIV16 1
@@ -43,7 +43,7 @@ SPI_S_IN_DIS 65
 SPI_S_IN_EN 64
 SPI_M_FOSC_CUST 1010
 ]
-[e E7824 . `uc
+[e E8009 . `uc
 SPI_CLK_HIGH_IN_IDLE 1
 SPI_CLK_LOW_IN_IDLE 0
 ]
@@ -55,25 +55,76 @@ SPI_CLK_LOW_IN_IDLE 0
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
-"13 C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
+"29 C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
 [v _main main `(v  1 e 1 0 ]
-"16 C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
+"23 C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
 [v _init_spi init_spi `(v  1 e 1 0 ]
-"28
-[v _write_spi_data write_spi_data `(v  1 e 1 0 ]
-"39
-[v _read_spi_data read_spi_data `(i  1 e 2 0 ]
-"382 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f18345.h
-[v _PORTA PORTA `VEuc  1 e 1 @12 ]
-"432
-[v _PORTB PORTB `VEuc  1 e 1 @13 ]
-"1548
-[v _TRISA TRISA `VEuc  1 e 1 @140 ]
-"1593
-[v _TRISB TRISB `VEuc  1 e 1 @141 ]
+"37
+[v _write_spi_buffer write_spi_buffer `(uc  1 e 1 0 ]
+"47
+[v _write_spi_fw_cmd write_spi_fw_cmd `(v  1 e 1 0 ]
+"55
+[v _read_spi_buffer read_spi_buffer `(uc  1 e 1 0 ]
+"73
+[v _wait_for_cts wait_for_cts `(uc  1 e 1 0 ]
+"89
+[v _read_fw_response read_fw_response `(*.39uc  1 e 1 0 ]
+[s S280 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+]
+"397 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f18345.h
+[u S287 . 1 `S280 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES287  1 e 1 @12 ]
+[s S257 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"488
+[u S266 . 1 `S257 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES266  1 e 1 @14 ]
+[s S240 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+]
+"1563
+[u S247 . 1 `S240 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES247  1 e 1 @140 ]
+[s S225 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"1607
+[u S231 . 1 `S225 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES231  1 e 1 @141 ]
+[s S204 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1649
+[u S213 . 1 `S204 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES213  1 e 1 @142 ]
 "4098
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @529 ]
-[s S88 . 1 `uc 1 BF 1 0 :1:0 
+[s S36 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -82,53 +133,112 @@ SPI_CLK_LOW_IN_IDLE 0
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
+"4877
+[u S45 . 1 `S36 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES45  1 e 1 @532 ]
 "4932
-[u S97 . 1 `S88 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES97  1 e 1 @532 ]
-[s S109 . 1 `uc 1 SSPM 1 0 :4:0 
+[v _SSPSTATbits SSPSTATbits `VES45  1 e 1 @532 ]
+[s S57 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
-"5073
-[s S115 . 1 `uc 1 SSPM0 1 0 :1:0 
+"5010
+[s S63 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[u S120 . 1 `S109 1 . 1 0 `S115 1 . 1 0 ]
-[v _SSPCONbits SSPCONbits `VES120  1 e 1 @533 ]
-"21666
-[v _RC7 RC7 `VEb  1 e 0 @119 ]
-"22238
-[v _TRISC7 TRISC7 `VEb  1 e 0 @1143 ]
-"13 C:\Users\YiChao\Documents\github\mplab_spi_t2\main.c
+[u S68 . 1 `S57 1 . 1 0 `S63 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES68  1 e 1 @533 ]
+"5135
+[v _SSPCON1bits SSPCON1bits `VES68  1 e 1 @533 ]
+"34 C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi.h
+[v _dummy dummy `uc  1 e 1 0 ]
+"29 C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\main.c
 [v _main main `(v  1 e 1 0 ]
 {
+"233
+[v main@cts_ready cts_ready `uc  1 a 1 27 ]
+"231
+[v main@i i `i  1 a 2 31 ]
+"241
+[v main@delay delay `i  1 a 2 23 ]
+"149
+[v main@timeout_cnter timeout_cnter `i  1 a 2 21 ]
+"166
+[v main@nIRQ_unreliable nIRQ_unreliable `uc  1 a 1 30 ]
+"167
+[v main@GPIO_1_unreliable GPIO_1_unreliable `uc  1 a 1 29 ]
+"170
+[v main@glbl_reset glbl_reset `uc  1 a 1 28 ]
+"168
+[v main@SPI_CTS_unreliable SPI_CTS_unreliable `uc  1 a 1 26 ]
+"165
+[v main@timeout timeout `uc  1 a 1 25 ]
+"76
+[v main@rf_power_up rf_power_up `DCC[7]uc  1 s 7 rf_power_up ]
+"77
+[v main@rf_gpio_pin_cfg rf_gpio_pin_cfg `DCC[8]uc  1 s 8 rf_gpio_pin_cfg ]
+"111
+[v main@rf_set_properties rf_set_properties `DCC[31]uc  1 s 31 rf_set_properties ]
+"263
+} 0
+"89 C:\Users\zhangyic\MPLABXProjects\mplab_spi_t2\spi_setup.c
+[v _read_fw_response read_fw_response `(*.39uc  1 e 1 0 ]
+{
+"99
+[v read_fw_response@i i `i  1 a 2 17 ]
+"91
+[v read_fw_response@resp resp `[16]uc  1 a 16 0 ]
+"93
+[v read_fw_response@cts_ready cts_ready `uc  1 a 1 16 ]
+"89
+[v read_fw_response@num_bytes num_bytes `i  1 p 2 10 ]
+"106
+} 0
+"73
+[v _wait_for_cts wait_for_cts `(uc  1 e 1 0 ]
+{
+"77
+[v wait_for_cts@cts cts `uc  1 a 1 9 ]
+"76
+[v wait_for_cts@read_cmd_buff read_cmd_buff `uc  1 a 1 8 ]
+"87
+} 0
+"55
+[v _read_spi_buffer read_spi_buffer `(uc  1 e 1 0 ]
+{
+"69
+} 0
+"47
+[v _write_spi_fw_cmd write_spi_fw_cmd `(v  1 e 1 0 ]
+{
+"49
+[v write_spi_fw_cmd@i i `i  1 a 2 3 ]
+"47
+[v write_spi_fw_cmd@dat dat `*.26uc  1 p 2 1 ]
+"52
+} 0
+"37
+[v _write_spi_buffer write_spi_buffer `(uc  1 e 1 0 ]
+{
+[v write_spi_buffer@data data `uc  1 a 1 wreg ]
+[v write_spi_buffer@data data `uc  1 a 1 wreg ]
+[v write_spi_buffer@data data `uc  1 a 1 0 ]
 "42
 } 0
-"28 C:\Users\YiChao\Documents\github\mplab_spi_t2\spi_setup.c
-[v _write_spi_data write_spi_data `(v  1 e 1 0 ]
-{
-[v write_spi_data@dat dat `i  1 p 2 0 ]
-"30
-} 0
-"39
-[v _read_spi_data read_spi_data `(i  1 e 2 0 ]
-{
-"45
-} 0
-"16
+"23
 [v _init_spi init_spi `(v  1 e 1 0 ]
 {
-[v init_spi@spi_mode spi_mode `E7807  1 a 1 wreg ]
-[v init_spi@spi_mode spi_mode `E7807  1 a 1 wreg ]
-[v init_spi@spi_clk_edge spi_clk_edge `E7811  1 p 1 0 ]
-[v init_spi@clk_cfg clk_cfg `E7815  1 p 2 1 ]
-[v init_spi@clk_idle_cfg clk_idle_cfg `E7824  1 p 1 3 ]
+[v init_spi@spi_mode spi_mode `E7811  1 a 1 wreg ]
+[v init_spi@spi_mode spi_mode `E7811  1 a 1 wreg ]
+[v init_spi@spi_clk_edge spi_clk_edge `E7815  1 p 1 0 ]
+[v init_spi@clk_cfg clk_cfg `E7819  1 p 2 1 ]
+[v init_spi@clk_idle_cfg clk_idle_cfg `E7828  1 p 1 3 ]
 [v init_spi@sspen sspen `i  1 p 2 4 ]
-"18
-[v init_spi@spi_mode spi_mode `E7807  1 a 1 6 ]
-"25
+"27
+[v init_spi@spi_mode spi_mode `E7811  1 a 1 6 ]
+"34
 } 0

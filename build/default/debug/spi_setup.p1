@@ -1,13 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"23 spi_setup.c
-[c E7811 1 0 .. ]
-[n E7811 . SPI_MASTER SPI_SLAVE  ]
-[c E7815 0 1 .. ]
-[n E7815 . SPI_POSEDGE SPI_NEGEDGE  ]
-[c E7819 9 8 1 0 65 64 1010 .. ]
-[n E7819 . SPI_M_T2_DIV2 SPI_M_FOSC_DIV64 SPI_M_FOSC_DIV16 SPI_M_FOSC_DIV4 SPI_S_IN_DIS SPI_S_IN_EN SPI_M_FOSC_CUST  ]
-[c E7828 1 0 .. ]
-[n E7828 . SPI_CLK_HIGH_IN_IDLE SPI_CLK_LOW_IN_IDLE  ]
+"16 spi_setup.c
+[c E7807 1 0 .. ]
+[n E7807 . SPI_MASTER SPI_SLAVE  ]
+[c E7811 0 1 .. ]
+[n E7811 . SPI_POSEDGE SPI_NEGEDGE  ]
+[c E7815 9 8 1 0 65 64 1010 .. ]
+[n E7815 . SPI_M_T2_DIV2 SPI_M_FOSC_DIV64 SPI_M_FOSC_DIV16 SPI_M_FOSC_DIV4 SPI_S_IN_DIS SPI_S_IN_EN SPI_M_FOSC_CUST  ]
+[c E7824 1 0 .. ]
+[n E7824 . SPI_CLK_HIGH_IN_IDLE SPI_CLK_LOW_IN_IDLE  ]
 "4921 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f18345.h
 [s S237 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S237 . BF UA R_nW S P D_nA CKE SMP ]
@@ -16,38 +16,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S236 . . ]
 "4932
 [v _SSPSTATbits `VS236 ~T0 @X0 0 e@532 ]
-"5121
-[s S245 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S245 . SSPM CKP SSPEN SSPOV WCOL ]
-"5128
-[s S246 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S246 . SSPM0 SSPM1 SSPM2 SSPM3 ]
-"5120
-[u S244 `S245 1 `S246 1 ]
-[n S244 . . . ]
-"5135
-[v _SSPCON1bits `VS244 ~T0 @X0 0 e@533 ]
-"4996
-[s S239 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S239 . SSPM CKP SSPEN SSPOV WCOL ]
-"5003
-[s S240 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S240 . SSPM0 SSPM1 SSPM2 SSPM3 ]
-"4995
-[u S238 `S239 1 `S240 1 ]
-[n S238 . . . ]
-"5010
-[v _SSP1CON1bits `VS238 ~T0 @X0 0 e@533 ]
+"5059
+[s S242 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S242 . SSPM CKP SSPEN SSPOV WCOL ]
+"5066
+[s S243 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S243 . SSPM0 SSPM1 SSPM2 SSPM3 ]
+"5058
+[u S241 `S242 1 `S243 1 ]
+[n S241 . . . ]
+"5073
+[v _SSPCONbits `VS241 ~T0 @X0 0 e@533 ]
 "4098
 [v _SSPBUF `Vuc ~T0 @X0 0 e@529 ]
-"4866
-[s S235 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S235 . BF UA R_nW S P D_nA CKE SMP ]
-"4865
-[u S234 `S235 1 ]
-[n S234 . . ]
-"4877
-[v _SSP1STATbits `VS234 ~T0 @X0 0 e@532 ]
 "35 pic16F18345_config.h
 [p x FEXTOSC=ECH ]
 "36
@@ -7596,252 +7577,130 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 192: extern unsigned char __resetbits;
 [; ;pic.h: 193: extern __bit __powerdown;
 [; ;pic.h: 194: extern __bit __timeout;
-[; ;spi.h: 30: typedef unsigned char UINT8;
-[; ;spi.h: 31: typedef signed char INT8;
-[; ;spi.h: 32: typedef unsigned char BOOL;
-"34 spi.h
-[v _dummy `uc ~T0 @X0 1 e ]
-[i _dummy
--> -> 255 `i `uc
-]
-[; ;spi.h: 34: UINT8 dummy = 0xff;
+[; ;spi.h: 30: typedef enum
+[; ;spi.h: 31: {
+[; ;spi.h: 32: SPI_MASTER = 1,
+[; ;spi.h: 33: SPI_SLAVE = 0
+[; ;spi.h: 34: }spi_smp_t;
 [; ;spi.h: 37: typedef enum
 [; ;spi.h: 38: {
-[; ;spi.h: 39: SPI_MASTER = 1,
-[; ;spi.h: 40: SPI_SLAVE = 0
-[; ;spi.h: 41: }spi_smp_t;
+[; ;spi.h: 39: SPI_POSEDGE = 0,
+[; ;spi.h: 40: SPI_NEGEDGE = 1
+[; ;spi.h: 41: }spi_cke_t;
 [; ;spi.h: 44: typedef enum
 [; ;spi.h: 45: {
-[; ;spi.h: 46: SPI_POSEDGE = 0,
-[; ;spi.h: 47: SPI_NEGEDGE = 1
-[; ;spi.h: 48: }spi_cke_t;
-[; ;spi.h: 51: typedef enum
-[; ;spi.h: 52: {
-[; ;spi.h: 53: SPI_M_T2_DIV2 = 0011,
-[; ;spi.h: 54: SPI_M_FOSC_DIV64 = 0010,
-[; ;spi.h: 55: SPI_M_FOSC_DIV16 = 0001,
-[; ;spi.h: 56: SPI_M_FOSC_DIV4 = 0000,
-[; ;spi.h: 57: SPI_S_IN_DIS = 0101,
-[; ;spi.h: 58: SPI_S_IN_EN = 0100,
-[; ;spi.h: 59: SPI_M_FOSC_CUST = 1010
-[; ;spi.h: 60: } spi_sspm_t;
-[; ;spi.h: 62: typedef enum
-[; ;spi.h: 63: {
-[; ;spi.h: 64: SPI_CLK_HIGH_IN_IDLE = 1,
-[; ;spi.h: 65: SPI_CLK_LOW_IN_IDLE = 0
-[; ;spi.h: 66: }spi_ckp_t;
-[; ;spi.h: 69: extern void init_spi(spi_smp_t spi_mode, spi_cke_t spi_clk_edge, spi_sspm_t clk_cfg, spi_ckp_t clk_idle_cfg, int sspen);
-[; ;spi.h: 72: extern UINT8 write_spi_buffer(UINT8 data);
-[; ;spi.h: 73: extern void write_spi_fw_cmd(UINT8 *dat);
-[; ;spi.h: 75: extern BOOL wait_for_cts();
-[; ;spi.h: 77: extern UINT8 read_spi_buffer();
-[; ;spi.h: 78: extern UINT8* read_fw_response(int num_bytes);
-"23 spi_setup.c
-[v _init_spi `(v ~T0 @X0 1 ef5`E7811`E7815`E7819`E7828`i ]
+[; ;spi.h: 46: SPI_M_T2_DIV2 = 0011,
+[; ;spi.h: 47: SPI_M_FOSC_DIV64 = 0010,
+[; ;spi.h: 48: SPI_M_FOSC_DIV16 = 0001,
+[; ;spi.h: 49: SPI_M_FOSC_DIV4 = 0000,
+[; ;spi.h: 50: SPI_S_IN_DIS = 0101,
+[; ;spi.h: 51: SPI_S_IN_EN = 0100,
+[; ;spi.h: 52: SPI_M_FOSC_CUST = 1010
+[; ;spi.h: 53: } spi_sspm_t;
+[; ;spi.h: 55: typedef enum
+[; ;spi.h: 56: {
+[; ;spi.h: 57: SPI_CLK_HIGH_IN_IDLE = 1,
+[; ;spi.h: 58: SPI_CLK_LOW_IN_IDLE = 0
+[; ;spi.h: 59: }spi_ckp_t;
+[; ;spi.h: 62: extern void init_spi(spi_smp_t spi_mode, spi_cke_t spi_clk_edge, spi_sspm_t clk_cfg, spi_ckp_t clk_idle_cfg, int sspen);
+[; ;spi.h: 63: extern void write_spi_data(int dat);
+[; ;spi.h: 64: extern unsigned read_spi_data_rdy();
+[; ;spi.h: 65: extern int read_spi_data();
+"16 spi_setup.c
+[v _init_spi `(v ~T0 @X0 1 ef5`E7807`E7811`E7815`E7824`i ]
 {
-[; ;spi_setup.c: 23: void init_spi(spi_smp_t spi_mode, spi_cke_t spi_clk_edge, spi_sspm_t clk_cfg, spi_ckp_t clk_idle_cfg, int sspen) {
+[; ;spi_setup.c: 16: void init_spi(spi_smp_t spi_mode, spi_cke_t spi_clk_edge, spi_sspm_t clk_cfg, spi_ckp_t clk_idle_cfg, int sspen) {
 [e :U _init_spi ]
-[v _spi_mode `E7811 ~T0 @X0 1 r1 ]
-[v _spi_clk_edge `E7815 ~T0 @X0 1 r2 ]
-[v _clk_cfg `E7819 ~T0 @X0 1 r3 ]
-[v _clk_idle_cfg `E7828 ~T0 @X0 1 r4 ]
+[v _spi_mode `E7807 ~T0 @X0 1 r1 ]
+[v _spi_clk_edge `E7811 ~T0 @X0 1 r2 ]
+[v _clk_cfg `E7815 ~T0 @X0 1 r3 ]
+[v _clk_idle_cfg `E7824 ~T0 @X0 1 r4 ]
 [v _sspen `i ~T0 @X0 1 r5 ]
 [f ]
-[; ;spi_setup.c: 27: SSPSTATbits.SMP = spi_mode;
-"27
+[; ;spi_setup.c: 18: SSPSTATbits.SMP = spi_mode;
+"18
 [e = . . _SSPSTATbits 0 7 -> _spi_mode `uc ]
-[; ;spi_setup.c: 28: SSPSTATbits.CKE = spi_clk_edge;
-"28
+[; ;spi_setup.c: 19: SSPSTATbits.CKE = spi_clk_edge;
+"19
 [e = . . _SSPSTATbits 0 6 -> _spi_clk_edge `uc ]
-[; ;spi_setup.c: 30: SSPCON1bits.SSPM = clk_cfg;
-"30
-[e = . . _SSPCON1bits 0 0 -> _clk_cfg `uc ]
-[; ;spi_setup.c: 31: SSPCON1bits.CKP = clk_idle_cfg;
-"31
-[e = . . _SSPCON1bits 0 1 -> _clk_idle_cfg `uc ]
-[; ;spi_setup.c: 32: SSPCON1bits.SSPEN = sspen;
-"32
-[e = . . _SSPCON1bits 0 2 -> _sspen `uc ]
-[; ;spi_setup.c: 34: }
-"34
+[; ;spi_setup.c: 21: SSPCONbits.SSPM = clk_cfg;
+"21
+[e = . . _SSPCONbits 0 0 -> _clk_cfg `uc ]
+[; ;spi_setup.c: 22: SSPCONbits.CKP = clk_idle_cfg;
+"22
+[e = . . _SSPCONbits 0 1 -> _clk_idle_cfg `uc ]
+[; ;spi_setup.c: 23: SSPCONbits.SSPEN = sspen;
+"23
+[e = . . _SSPCONbits 0 2 -> _sspen `uc ]
+[; ;spi_setup.c: 25: }
+"25
 [e :UE 958 ]
 }
-"37
-[v _write_spi_buffer `(uc ~T0 @X0 1 ef1`uc ]
+"28
+[v _write_spi_data `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;spi_setup.c: 37: UINT8 write_spi_buffer(UINT8 data){
-[e :U _write_spi_buffer ]
-[v _data `uc ~T0 @X0 1 r1 ]
+[; ;spi_setup.c: 28: void write_spi_data(int dat){
+[e :U _write_spi_data ]
+[v _dat `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;spi_setup.c: 38: SSP1CON1bits.WCOL = 0;
-"38
-[e = . . _SSP1CON1bits 0 4 -> -> 0 `i `uc ]
-[; ;spi_setup.c: 39: SSPBUF = data;
-"39
-[e = _SSPBUF _data ]
-[; ;spi_setup.c: 40: while (SSP1STATbits.BF == 1) {};
-"40
-[e $U 960  ]
-[e :U 961 ]
-{
-}
-[e :U 960 ]
-[e $ == -> . . _SSP1STATbits 0 0 `i -> 1 `i 961  ]
-[e :U 962 ]
-[; ;spi_setup.c: 41: return (SSPBUF);
-"41
-[e ) _SSPBUF ]
-[e $UE 959  ]
-[; ;spi_setup.c: 42: }
-"42
+[; ;spi_setup.c: 29: SSPBUF = dat;
+"29
+[e = _SSPBUF -> _dat `uc ]
+[; ;spi_setup.c: 30: }
+"30
 [e :UE 959 ]
 }
-"47
-[v _write_spi_fw_cmd `(v ~T0 @X0 1 ef1`*uc ]
+"31
+[v _read_spi_data_rdy `(ui ~T0 @X0 1 ef ]
 {
-[; ;spi_setup.c: 47: void write_spi_fw_cmd(UINT8 *dat){
-[e :U _write_spi_fw_cmd ]
-[v _dat `*uc ~T0 @X0 1 r1 ]
+[; ;spi_setup.c: 31: unsigned read_spi_data_rdy(){
+[e :U _read_spi_data_rdy ]
 [f ]
-[; ;spi_setup.c: 49: for (int i=0; i<sizeof(dat); i++) {
-"49
+[; ;spi_setup.c: 32: if (SSPSTATbits.BF) {
+"32
+[e $ ! != -> . . _SSPSTATbits 0 0 `i -> -> -> 0 `i `Vuc `i 961  ]
 {
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < -> _i `ui -> # _dat `ui 964  ]
-[e $U 965  ]
-[e :U 964 ]
-{
-[; ;spi_setup.c: 50: write_spi_buffer(dat[i]);
-"50
-[e ( _write_spi_buffer (1 *U + _dat * -> _i `x -> -> # *U _dat `i `x ]
-"51
+[; ;spi_setup.c: 33: return 1;
+"33
+[e ) -> -> 1 `i `ui ]
+[e $UE 960  ]
+"34
 }
-"49
-[e ++ _i -> 1 `i ]
-[e $ < -> _i `ui -> # _dat `ui 964  ]
+[; ;spi_setup.c: 34: } else {
+[e $U 962  ]
+[e :U 961 ]
+{
+[; ;spi_setup.c: 35: return 0;
+"35
+[e ) -> -> 0 `i `ui ]
+[e $UE 960  ]
+"36
+}
+[e :U 962 ]
+[; ;spi_setup.c: 36: }
+[; ;spi_setup.c: 37: }
+"37
+[e :UE 960 ]
+}
+"39
+[v _read_spi_data `(i ~T0 @X0 1 ef ]
+{
+[; ;spi_setup.c: 39: int read_spi_data(){
+[e :U _read_spi_data ]
+[f ]
+[; ;spi_setup.c: 42: while(!read_spi_data);
+"42
+[e $U 964  ]
 [e :U 965 ]
-"51
-}
-[; ;spi_setup.c: 51: }
-[; ;spi_setup.c: 52: }
-"52
+[e :U 964 ]
+[v F7844 `(i ~T0 @X0 1 tf ]
+[e $ ! != &U _read_spi_data -> -> 0 `i `*F7844 965  ]
+[e :U 966 ]
+[; ;spi_setup.c: 44: return(SSPBUF);
+"44
+[e ) -> _SSPBUF `i ]
+[e $UE 963  ]
+[; ;spi_setup.c: 45: }
+"45
 [e :UE 963 ]
-}
-"55
-[v _read_spi_buffer `(uc ~T0 @X0 1 ef ]
-{
-[; ;spi_setup.c: 55: UINT8 read_spi_buffer(){
-[e :U _read_spi_buffer ]
-[f ]
-[; ;spi_setup.c: 65: write_spi_fw_cmd(dummy);
-"65
-[e ( _write_spi_fw_cmd (1 -> _dummy `*uc ]
-[; ;spi_setup.c: 66: while(!SSPSTATbits.BF);
-"66
-[e $U 968  ]
-[e :U 969 ]
-[e :U 968 ]
-[e $ ! != -> . . _SSPSTATbits 0 0 `i -> -> -> 0 `i `Vuc `i 969  ]
-[e :U 970 ]
-[; ;spi_setup.c: 68: return(SSPBUF);
-"68
-[e ) _SSPBUF ]
-[e $UE 967  ]
-[; ;spi_setup.c: 69: }
-"69
-[e :UE 967 ]
-}
-"73
-[v _wait_for_cts `(uc ~T0 @X0 1 ef ]
-{
-[; ;spi_setup.c: 73: BOOL wait_for_cts() {
-[e :U _wait_for_cts ]
-[f ]
-"76
-[v _read_cmd_buff `uc ~T0 @X0 1 a ]
-[; ;spi_setup.c: 76: UINT8 read_cmd_buff = 0x44;
-[e = _read_cmd_buff -> -> 68 `i `uc ]
-"77
-[v _cts `uc ~T0 @X0 1 a ]
-[; ;spi_setup.c: 77: UINT8 cts = 0;
-[e = _cts -> -> 0 `i `uc ]
-[; ;spi_setup.c: 79: do {
-"79
-[e :U 974 ]
-{
-[; ;spi_setup.c: 80: write_spi_buffer(read_cmd_buff);
-"80
-[e ( _write_spi_buffer (1 _read_cmd_buff ]
-[; ;spi_setup.c: 81: cts = read_spi_buffer();
-"81
-[e = _cts ( _read_spi_buffer ..  ]
-"82
-}
-[; ;spi_setup.c: 82: } while(cts != 0xFF);
-[e $ != -> _cts `i -> 255 `i 974  ]
-[e :U 973 ]
-[; ;spi_setup.c: 86: return 1;
-"86
-[e ) -> -> 1 `i `uc ]
-[e $UE 971  ]
-[; ;spi_setup.c: 87: }
-"87
-[e :UE 971 ]
-}
-"89
-[v _read_fw_response `(*uc ~T0 @X0 1 ef1`i ]
-{
-[; ;spi_setup.c: 89: UINT8* read_fw_response(int num_bytes) {
-[e :U _read_fw_response ]
-[v _num_bytes `i ~T0 @X0 1 r1 ]
-[f ]
-"91
-[v _resp `uc ~T0 @X0 -> 16 `i a ]
-"93
-[v _cts_ready `uc ~T0 @X0 1 a ]
-[; ;spi_setup.c: 91: UINT8 resp[16];
-[; ;spi_setup.c: 93: BOOL cts_ready;
-[; ;spi_setup.c: 95: cts_ready = wait_for_cts();
-"95
-[e = _cts_ready ( _wait_for_cts ..  ]
-[; ;spi_setup.c: 97: if (cts_ready) {
-"97
-[e $ ! != -> _cts_ready `i -> -> -> 0 `i `uc `i 976  ]
-{
-[; ;spi_setup.c: 99: for(int i=0;i<num_bytes;i++) {
-"99
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $U 980  ]
-[e :U 977 ]
-{
-[; ;spi_setup.c: 100: write_spi_buffer(dummy);
-"100
-[e ( _write_spi_buffer (1 _dummy ]
-[; ;spi_setup.c: 101: resp[i] = read_spi_buffer();
-"101
-[e = *U + &U _resp * -> -> _i `ui `ux -> -> # *U &U _resp `ui `ux ( _read_spi_buffer ..  ]
-"102
-}
-"99
-[e ++ _i -> 1 `i ]
-[e :U 980 ]
-[e $ < _i _num_bytes 977  ]
-[e :U 978 ]
-"102
-}
-"103
-}
-[e :U 976 ]
-[; ;spi_setup.c: 102: }
-[; ;spi_setup.c: 103: }
-[; ;spi_setup.c: 105: return *resp;
-"105
-[e ) -> *U &U _resp `*uc ]
-[e $UE 975  ]
-[; ;spi_setup.c: 106: }
-"106
-[e :UE 975 ]
 }

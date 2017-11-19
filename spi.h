@@ -26,6 +26,13 @@
  * Revision history: 
  */
 
+
+typedef unsigned char       UINT8;
+typedef signed char         INT8;
+typedef unsigned char       BOOL;
+
+UINT8 dummy = 0xff;
+
 //SSP STATUS register
 typedef enum
 {
@@ -60,6 +67,13 @@ typedef enum
 
 
 extern void init_spi(spi_smp_t spi_mode, spi_cke_t spi_clk_edge, spi_sspm_t clk_cfg, spi_ckp_t clk_idle_cfg, int sspen);
-extern void write_spi_data(int dat);
-extern unsigned read_spi_data_rdy();
-extern int read_spi_data();
+
+
+extern UINT8 write_spi_buffer(UINT8 data);
+extern void write_spi_fw_cmd(UINT8 *dat);
+
+extern BOOL wait_for_cts();
+
+extern UINT8 read_spi_buffer();
+extern UINT8* read_fw_response(int num_bytes);
+

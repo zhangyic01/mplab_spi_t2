@@ -26,7 +26,7 @@ with an acknowledgment followed by LED activity.
  */
 
 
-void main(void) {
+void main_bk(void) {
     
 
     //*******************************
@@ -72,7 +72,12 @@ void main(void) {
     TRISAbits.TRISA2 = 1; // nIRQ - correct
     //SDN
     
-    //setup FW commands, and property settings
+    //setup FW commands
+    //No need to allocate as they are const type???    
+    //setup FW configuration queue
+    //UINT8** rf_config;
+    //rf_config = malloc(31*sizeof(UINT8*));
+    
     static const UINT8 rf_power_up                          [] = {RF_POWER_UP                            };    
     static const UINT8 rf_gpio_pin_cfg                      [] = {RF_GPIO_PIN_CFG                        };
     static const UINT8 rf_global_xo_tune_2                  [] = {RF_GLOBAL_XO_TUNE_2                    };
@@ -106,9 +111,9 @@ void main(void) {
     static const UINT8 rf_synth_pfdcp_cpff_7                [] = {RF_SYNTH_PFDCP_CPFF_7                  };
     static const UINT8 rf_match_value_1_12                  [] = {RF_MATCH_VALUE_1_12                    };
     static const UINT8 rf_freq_control_inte_8               [] = {RF_FREQ_CONTROL_INTE_8                 };    
-
-    //Set all the properties
-    static const UINT8 rf_set_properties[31]= {
+    
+    static const UINT8 rf_confg[32]= {
+        rf_gpio_pin_cfg                      ,    
         rf_global_xo_tune_2                  ,
         rf_global_config_1                   ,
         rf_int_ctl_enable_1                  ,
@@ -158,8 +163,6 @@ void main(void) {
     //b. RF chip is ready and able to read FW cmd. Send POWER_UP
     //SPI buffer is 8 bits
     write_spi_fw_cmd(rf_power_up);  //takes 15 ms to complete
-    read_fw_response(11);
-    
     
     //Waiting for response - 3 options. Read SPI CTS/ nIRQ de-assert / GPIO1 assert
     BOOL timeout = 0;
@@ -194,8 +197,6 @@ void main(void) {
         //by either the GET_CHIP_STATUS or the GET_INT_STATUS command. Apart from monitoring the interrupt flags,
         //the radio may pull down the NIRQ pin if this feature is enabled
         write_spi_fw_cmd(RF_GET_CHIP_STATUS);
-        read_fw_response(10);
-        
         if(nIRQ_unreliable == 0 && PORTAbits.RA2 == 1) {
             break;
             //Response received, it is good, continue
@@ -223,40 +224,50 @@ void main(void) {
     //When we do not reset, we continue our program
     if (glbl_reset == 0) {
 
-        //configure the device line by line
-        write_spi_fw_cmd(rf_gpio_pin_cfg);
-        read_fw_response(8);  //GPIO_PIN_CFG reply stream 
-
-        //set properties, set property reply_stream is only cts 0xFF. So we just need to wait_for_cts
-        for (int i=0; i<sizeof(rf_set_properties); i++) {
-            write_spi_fw_cmd(rf_set_properties[i]);
-            BOOL cts_ready = 0;
-            while (cts_ready == 0) {
-                cts_ready = wait_for_cts();
-            }
-            //Need a timeout
+          //configure the device
+        for (int i=0;i<sizeof(rf_confg);i++) {
+            write_spi_fw_cmd(rf_confg[i]);
+            
+            
+            read_fw_response(1); //handle later
         }
         
         //device config is done, give some drain time
-        int delay = 100; //crystal to calculate actual delay. Arbitarily set to 100
-        while(delay > 0) {
-            delay --;
-        };
+        //TODO: add drain time
+       
         
         //5. programming MCU to read/write RF data, and handle the data
-        while(1) {
-            //For testing just keeps writing 00, 44, 88, cc pattern.
-            write_spi_buffer(0x00);
-            write_spi_buffer(0x44);
-            write_spi_buffer(0x88);
-            write_spi_buffer(0xcc);
-        }
+        
         
         
     }
     //else, it goes back to top of main(), we are restart everything over
     
     
+    
+    
+    
+    
+    
+    /*
+    while(1)
+    {
+        RC7 = 0; //Slave Select enable slave
+        __delay_ms(1);
+        
+        //master SPI
+        //Refer to Figure 30-1. 
+        write_spi_data(0x1); //slave write to our input  
+        PORTA = read_spi_data(); //slave read from our output
+
+        write_spi_data(0x0);
+        __delay_ms(1);
+        write_spi_data(0x1);
+
+        RC7 = 1;
+        __delay_ms(100);
+    }
+    */
     
     return;
     
